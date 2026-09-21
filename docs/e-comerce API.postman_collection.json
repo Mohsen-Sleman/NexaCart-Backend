@@ -1,0 +1,3059 @@
+{
+  "info": {
+    "_postman_id": "d87b4f20-f8a0-48cc-bb31-866f697e7d90",
+    "name": "e-comerce API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "36183815"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register / SignUp",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\" : \"example@gmail.com\",\r\n    \"first_name\" : \"example\",\r\n    \"last_name\" : \"test\",\r\n    \"password\" : \"12345678\",\r\n    \"password2\" : \"12345678\",\r\n    \"phone\" :\"+96399999999\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/users/register/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "users",
+                "register",
+                ""
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Valid Data With Image - 201 Created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "email",
+                      "value": "example2@gmail.com",
+                      "type": "text"
+                    },
+                    {
+                      "key": "first_name",
+                      "value": "example",
+                      "type": "text"
+                    },
+                    {
+                      "key": "last_name",
+                      "value": "test",
+                      "type": "text"
+                    },
+                    {
+                      "key": "phone",
+                      "value": "+963123456789",
+                      "type": "text"
+                    },
+                    {
+                      "key": "profile_picture",
+                      "type": "file",
+                      "src": [
+                        "postman-cloud:///1f130c8d-1ab8-4f70-b2b1-7c3fd78f92b1"
+                      ]
+                    },
+                    {
+                      "key": "password",
+                      "value": "12345678",
+                      "type": "text"
+                    },
+                    {
+                      "key": "password2",
+                      "value": "12345678",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/users/register/",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "users",
+                    "register",
+                    ""
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Wed, 16 Sep 2026 09:47:15 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept, Cookie"
+                },
+                {
+                  "key": "allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "64"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"message\": \"Registration successful, Please verify your email.\"\n}"
+            },
+            {
+              "name": "Valid Data Without Image - 201 Craeted",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"email\" : \"example@gmail.com\",\r\n    \"first_name\" : \"example\",\r\n    \"last_name\" : \"test\",\r\n    \"password\" : \"12345678\",\r\n    \"password2\" : \"12345678\",\r\n    \"phone\" :\"+96399999999\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/users/register/",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "users",
+                    "register",
+                    ""
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Wed, 16 Sep 2026 09:39:42 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept, Cookie"
+                },
+                {
+                  "key": "allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "64"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"message\": \"Registration successful, Please verify your email.\"\n}"
+            },
+            {
+              "name": "Password Mismatch - 400 Bad Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"email\" : \"example1@gmail.com\",\r\n    \"first_name\" : \"example\",\r\n    \"last_name\" : \"test\",\r\n    \"password\" : \"12345678\",\r\n    \"password2\" : \"123456789\",\r\n    \"phone\" :\"+96399999990\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/users/register/",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "users",
+                    "register",
+                    ""
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Wed, 16 Sep 2026 09:43:03 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept, Cookie"
+                },
+                {
+                  "key": "allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "48"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"non_field_errors\": [\n    \"Passwords do not match.\"\n  ]\n}"
+            },
+            {
+              "name": "Weak Password - 400 Bad Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"email\" : \"example@gmail.com\",\r\n    \"first_name\" : \"example\",\r\n    \"last_name\" : \"test\",\r\n    \"password\" : \"12345678\",\r\n    \"password2\" : \"12345678\",\r\n    \"phone\" :\"+96399999999\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/users/register/",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "users",
+                    "register",
+                    ""
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Sun, 20 Sep 2026 13:02:33 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "82"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"password\": [\n    \"This password is too common.\",\n    \"This password is entirely numeric.\"\n  ]\n}"
+            },
+            {
+              "name": "Email or Phone Already Exists - 400 Bad Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"email\" : \"example@gmail.com\",\r\n    \"first_name\" : \"example\",\r\n    \"last_name\" : \"test\",\r\n    \"password\" : \"12345678\",\r\n    \"password2\" : \"12345678\",\r\n    \"phone\" :\"+96399999999\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/users/register/",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "users",
+                    "register",
+                    ""
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Wed, 16 Sep 2026 09:40:33 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept, Cookie"
+                },
+                {
+                  "key": "allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "99"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"email\": [\n    \"user with this email already exists.\"\n  ],\n  \"phone\": [\n    \"user with this phone already exists.\"\n  ]\n}"
+            },
+            {
+              "name": "Missing Required Fields - 400 Bad Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/users/register/",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "users",
+                    "register",
+                    ""
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Wed, 16 Sep 2026 09:43:37 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept, Cookie"
+                },
+                {
+                  "key": "allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "233"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"email\": [\n    \"This field is required.\"\n  ],\n  \"first_name\": [\n    \"This field is required.\"\n  ],\n  \"last_name\": [\n    \"This field is required.\"\n  ],\n  \"password\": [\n    \"This field is required.\"\n  ],\n  \"password2\": [\n    \"This field is required.\"\n  ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "OTP Verify",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/users/verify-email/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "users",
+                "verify-email",
+                ""
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Verified successfully - 200 OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"email\" : \"example@gmail.com\",\r\n    \"otp\" : \"939880\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/users/verify-email/",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "users",
+                    "verify-email",
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Wed, 16 Sep 2026 09:51:50 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept, Cookie"
+                },
+                {
+                  "key": "allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "42"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"message\": \"Email verified successfully.\"\n}"
+            },
+            {
+              "name": "Invalid OTP - 400 Bad Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"email\" : \"example@gmail.com\",\r\n    \"otp\" : \"000000\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/users/verify-email/",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "users",
+                    "verify-email",
+                    ""
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Wed, 16 Sep 2026 10:19:29 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept, Cookie"
+                },
+                {
+                  "key": "allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "47"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"error\": \"Invalid OTP.\",\n  \"remaining_attempts\": 4\n}"
+            },
+            {
+              "name": "Too Many Attempts - 400 Bad Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"email\" : \"example@gmail.com\",\r\n    \"otp\" : \"000000\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/users/verify-email/",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "users",
+                    "verify-email",
+                    ""
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Wed, 16 Sep 2026 10:20:52 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept, Cookie"
+                },
+                {
+                  "key": "allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "56"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"error\": \"Too many attempts. Please request a new OTP.\"\n}"
+            },
+            {
+              "name": "Expired OTP - 400 Bad Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"email\" : \"example@gmail.com\",\r\n    \"otp\" : \"000000\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/users/verify-email/",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "users",
+                    "verify-email",
+                    ""
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Wed, 16 Sep 2026 10:26:29 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept, Cookie"
+                },
+                {
+                  "key": "allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "54"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"error\": \"OTP has expired. Please request a new OTP.\"\n}"
+            },
+            {
+              "name": "Missing Required Fields - 400 Bad Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/users/verify-email/",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "users",
+                    "verify-email",
+                    ""
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Wed, 16 Sep 2026 09:53:36 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept, Cookie"
+                },
+                {
+                  "key": "allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "71"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"email\": [\n    \"This field is required.\"\n  ],\n  \"otp\": [\n    \"This field is required.\"\n  ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Resend OTP",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\" : \"example@gmail.com\"\r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/users/resend-otp/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "users",
+                "resend-otp",
+                ""
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Resend Successfully - 200 OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"email\" : \"example@gmail.com\"\r\n\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/users/resend-otp/",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "users",
+                    "resend-otp",
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Wed, 16 Sep 2026 11:00:26 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept, Cookie"
+                },
+                {
+                  "key": "allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "52"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"message\": \"A new verification code has been sent.\"\n}"
+            },
+            {
+              "name": "Already Verified - 400 Bad Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"email\" : \"example@gmail.com\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/users/resend-otp/",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "users",
+                    "resend-otp",
+                    ""
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Wed, 16 Sep 2026 10:52:43 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept, Cookie"
+                },
+                {
+                  "key": "allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "38"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"error\": \"Email is already verified.\"\n}"
+            },
+            {
+              "name": "Email Not Exist - 400 Bad Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"email\" : \"notexist@gmail.com\"\r\n\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/users/resend-otp/",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "users",
+                    "resend-otp",
+                    ""
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Wed, 16 Sep 2026 10:56:21 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept, Cookie"
+                },
+                {
+                  "key": "allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "26"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"error\": \"Invalid email.\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Password Reset Request",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\" : \"example@gmail.com\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/users/password-reset/request/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "users",
+                "password-reset",
+                "request",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Password Reset Confirm",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\" : \"example@gmail.com\",\r\n    \"otp\" : \"477222\",\r\n    \"new_password\" : \"1234567\",\r\n    \"new_password2\" : \"1234567\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/users/password-reset/confirm/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "users",
+                "password-reset",
+                "confirm",
+                ""
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Verified Successfully - 200 OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"email\" : \"example@gmail.com\",\r\n    \"otp\" : \"477222\",\r\n    \"new_password\" : \"1234567\",\r\n    \"new_password2\" : \"1234567\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/users/password-reset/confirm/",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "users",
+                    "password-reset",
+                    "confirm",
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Thu, 17 Sep 2026 09:28:07 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept, Cookie"
+                },
+                {
+                  "key": "allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "42"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"message\": \"Password reset successfully.\"\n}"
+            },
+            {
+              "name": "Invalid OTP - 400 Bad Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"email\" : \"example@gmail.com\",\r\n    \"otp\" : \"000000\",\r\n    \"new_password\" : \"1234567\",\r\n    \"new_password2\" : \"1234567\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/users/password-reset/confirm/",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "users",
+                    "password-reset",
+                    "confirm",
+                    ""
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Thu, 17 Sep 2026 09:25:04 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept, Cookie"
+                },
+                {
+                  "key": "allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "47"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"error\": \"Invalid OTP.\",\n  \"remaining_attempts\": 4\n}"
+            },
+            {
+              "name": "Too Many Attempts - 400 Bad Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"email\" : \"example@gmail.com\",\r\n    \"otp\" : \"000000\",\r\n    \"new_password\" : \"1234567\",\r\n    \"new_password2\" : \"1234567\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/users/password-reset/confirm/",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "users",
+                    "password-reset",
+                    "confirm",
+                    ""
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Thu, 17 Sep 2026 09:25:40 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept, Cookie"
+                },
+                {
+                  "key": "allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "56"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"error\": \"Too many attempts. Please request a new OTP.\"\n}"
+            },
+            {
+              "name": "Expired OTP - 400 Bad Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"email\" : \"example@gmail.com\",\r\n    \"otp\" : \"000000\",\r\n    \"new_password\" : \"1234567\",\r\n    \"new_password2\" : \"1234567\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/users/password-reset/confirm/",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "users",
+                    "password-reset",
+                    "confirm",
+                    ""
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Thu, 17 Sep 2026 09:23:13 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept, Cookie"
+                },
+                {
+                  "key": "allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "54"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"error\": \"OTP has expired. Please request a new OTP.\"\n}"
+            },
+            {
+              "name": "Email or OTP Not Exist - 400 Bad Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"email\" : \"example@gmail.com\",\r\n    \"otp\" : \"000000\",\r\n    \"new_password\" : \"1234567\",\r\n    \"new_password2\" : \"1234567\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/users/password-reset/confirm/",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "users",
+                    "password-reset",
+                    "confirm",
+                    ""
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Thu, 17 Sep 2026 09:19:48 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept, Cookie"
+                },
+                {
+                  "key": "allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "33"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"error\": \"Invalid email or OTP.\"\n}"
+            },
+            {
+              "name": "Password Mismatch - 400 Bad Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"email\" : \"example@gmail.com\",\r\n    \"otp\" : \"000000\",\r\n    \"new_password\" : \"1234567\",\r\n    \"new_password2\" : \"12345678\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/users/password-reset/confirm/",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "users",
+                    "password-reset",
+                    "confirm",
+                    ""
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Thu, 17 Sep 2026 09:19:16 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept, Cookie"
+                },
+                {
+                  "key": "allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "44"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"new_password\": [\n    \"Passwords do not match.\"\n  ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\" : \"example@gmail.com\",\r\n    \"password\" : \"12345678\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/users/login/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "users",
+                "login",
+                ""
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Login Successfully - 200 OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"email\" : \"example@gmail.com\",\r\n    \"password\" : \"12345678\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/users/login/",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "users",
+                    "login",
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Thu, 17 Sep 2026 09:59:40 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "491"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"access\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzg5NjQwMDgwLCJpYXQiOjE3ODk2MzkxODAsImp0aSI6ImY2M2E1NmZmYzdmZjRjZTY4NzU1ZTkyMjc4NjYzNDFlIiwidXNlcl9pZCI6IjExIn0.NNnnxBff034Gx0-Omibd4v5SmiFKkC8XuQUZ2jkXn7w\",\n  \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc5MDI0Mzk4MCwiaWF0IjoxNzg5NjM5MTgwLCJqdGkiOiIyZjJkYmZlZGQxMDI0NDQ5Yjg3MWU5ZDFkYjc4Y2U4ZSIsInVzZXJfaWQiOiIxMSJ9.Uorva6gMgU-ix2HZznIiTAbDUNKAI0lV-8HJ-E8QABQ\"\n}"
+            },
+            {
+              "name": "User Not Verified - 400 Bad Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"email\" : \"example@gmail.com\",\r\n    \"password\" : \"1234567\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/users/login/",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "users",
+                    "login",
+                    ""
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Thu, 17 Sep 2026 09:53:29 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "57"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"error\": [\n    \"Please verify your email before logging in.\"\n  ]\n}"
+            },
+            {
+              "name": "Invalid Email or Password - 400 Bad Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"email\" : \"example@gmail.com\",\r\n    \"password\" : \"1234567\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/users/login/",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "users",
+                    "login",
+                    ""
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Thu, 17 Sep 2026 09:55:01 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "40"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"error\": [\n    \"Invalid email or password.\"\n  ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Logout",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzg5NjQyODE3LCJpYXQiOjE3ODk2NDE5MTcsImp0aSI6ImE4Yjg3YzRiMGYxNTQxMWM5ZWM2NDI2YzIwMTVjZDgzIiwidXNlcl9pZCI6IjExIn0.kwYNj4Cd0bZvKVCQPufekuMusA7dPwmxdZmuPbEvDro",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cffCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc5MDI0NjcxNywiaWF0IjoxNzg5NjQxOTE3LCJqdGkiOiI0NDU3YTc1ZTQ2YWI0YjZkYjdlNDI3MGU1NDA1YjRkYyIsInVzZXJfaWQiOiIxMSJ9.LIoei0ILe0BWQnL5y6951-A-F_nFfu6YBe2BAgAeBDQ\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/users/logout/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "users",
+                "logout",
+                ""
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Logout Successfully - 200 OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc5MDI0NjcxNywiaWF0IjoxNzg5NjQxOTE3LCJqdGkiOiI0NDU3YTc1ZTQ2YWI0YjZkYjdlNDI3MGU1NDA1YjRkYyIsInVzZXJfaWQiOiIxMSJ9.LIoei0ILe0BWQnL5y6951-A-F_nFfu6YBe2BAgAeBDQ\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/users/logout/",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "users",
+                    "logout",
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Thu, 17 Sep 2026 10:46:40 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "38"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"message\": \"Logged out successfully.\"\n}"
+            },
+            {
+              "name": "Invalid Token - 400 Bad Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cffCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc5MDI0NjcxNywiaWF0IjoxNzg5NjQxOTE3LCJqdGkiOiI0NDU3YTc1ZTQ2YWI0YjZkYjdlNDI3MGU1NDA1YjRkYyIsInVzZXJfaWQiOiIxMSJ9.LIoei0ILe0BWQnL5y6951-A-F_nFfu6YBe2BAgAeBDQ\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/users/logout/",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "users",
+                    "logout",
+                    ""
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Thu, 17 Sep 2026 10:48:06 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "34"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"error\": \"Invalid refresh token.\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Refresh Token",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc5MDI0Mzk4MCwiaWF0IjoxNzg5NjM5MTgwLCJqdGkiOiIyZjJkYmZlZGQxMDI0NDQ5Yjg3MWU5ZDFkYjc4Y2U4ZSIsInVzZXJfaWQiOiIxMSJ9.Uorva6gMgU-ix2HZznIiTAbDUNKAI0lV-8HJ-E8QABQ\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/users/token/refresh/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "users",
+                "token",
+                "refresh",
+                ""
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Token Refreshed - 200 OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc5MDI0Mzk4MCwiaWF0IjoxNzg5NjM5MTgwLCJqdGkiOiIyZjJkYmZlZGQxMDI0NDQ5Yjg3MWU5ZDFkYjc4Y2U4ZSIsInVzZXJfaWQiOiIxMSJ9.Uorva6gMgU-ix2HZznIiTAbDUNKAI0lV-8HJ-E8QABQ\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/users/token/refresh/",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "users",
+                    "token",
+                    "refresh",
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Thu, 17 Sep 2026 10:25:33 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "245"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"access\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzg5NjQxNjMzLCJpYXQiOjE3ODk2NDA3MzMsImp0aSI6IjgxM2UxOWI5ZTVjNTQ1MTdhMzMyZTg0M2Y0MWVkYWE1IiwidXNlcl9pZCI6IjExIn0.N6vHO9P_xcx7CJNnrNp48bci6vzJrsIJbBWFH4auHRE\"\n}"
+            },
+            {
+              "name": "Token Expired - 401 Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc4OTY0MTE1NSwiaWF0IjoxNzg5NjQxMDk1LCJqdGkiOiIyMThmNGNmZDgzMjQ0MmIyYjdmZWNiMjc4MGJjMWNiNCIsInVzZXJfaWQiOiIxMSJ9.0m0jvxaxeGKo9ADdpm9igPzG7r3vb2PNrftMrQyC0bU\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/users/token/refresh/",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "users",
+                    "token",
+                    "refresh",
+                    ""
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Thu, 17 Sep 2026 10:32:57 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "www-authenticate",
+                  "value": "Bearer realm=\"api\""
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "54"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"detail\": \"Token is expired\",\n  \"code\": \"token_not_valid\"\n}"
+            },
+            {
+              "name": "Token Is Blacklisted - 401 Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc5MDI0NjcxNywiaWF0IjoxNzg5NjQxOTE3LCJqdGkiOiI0NDU3YTc1ZTQ2YWI0YjZkYjdlNDI3MGU1NDA1YjRkYyIsInVzZXJfaWQiOiIxMSJ9.LIoei0ILe0BWQnL5y6951-A-F_nFfu6YBe2BAgAeBDQ\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/users/token/refresh/",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "users",
+                    "token",
+                    "refresh",
+                    ""
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Thu, 17 Sep 2026 10:49:18 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "www-authenticate",
+                  "value": "Bearer realm=\"api\""
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "58"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"detail\": \"Token is blacklisted\",\n  \"code\": \"token_not_valid\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Google Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"access_token\": \"example123\"\r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/users/google/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "users",
+                "google",
+                ""
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "SignUp Successfully - 200 OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{  \r\n    \"access_token\": \"example123\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/users/google/",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "users",
+                    "google",
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Sat, 19 Sep 2026 14:53:00 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "623"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"access\": \"...\",\n  \"refresh\": \"...\",\n  \"is_new_user\": true,\n  \"user\": {\n    \"id\": 17,\n    \"email\": \"example.test@gmail.com\",\n    \"phone\": null,\n    \"first_name\": \"example\",\n    \"last_name\": \"test\",\n    \"profile_picture\": null\n  }\n}"
+            },
+            {
+              "name": "SignIn Successfully - 200 OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{ \r\n    \"access_token\": \"example123\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/users/google/",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "users",
+                    "google",
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Sat, 19 Sep 2026 14:55:04 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "624"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"access\": \"...\",\n  \"refresh\": \"...\",\n  \"is_new_user\": false,\n  \"user\": {\n    \"id\": 17,\n    \"email\": \"example.test@gmail.com\",\n    \"phone\": \"123123\",\n    \"first_name\": \"example\",\n    \"last_name\": \"test\",\n    \"profile_picture\": null\n  }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Profile",
+      "item": [
+        {
+          "name": "Get Profile",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzg5NjQ2ODM1LCJpYXQiOjE3ODk2NDU5MzUsImp0aSI6IjRiMGUyY2NiYmI0YzRkMTE4NjM5YjI5MzNhNWQ2YTk2IiwidXNlcl9pZCI6IjExIn0.w276kCfEsfR9nTr2TXe2MYmnSPQcdNUi3aeeX0Y3-Mk",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/users/profile/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "users",
+                "profile",
+                ""
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get Profile Successfully - 200 OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "",
+                    "disabled": true
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/users/profile/",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "users",
+                    "profile",
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Thu, 17 Sep 2026 11:52:33 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "allow",
+                  "value": "GET, PUT, PATCH, HEAD, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "124"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"email\": \"example@gmail.com\",\n  \"first_name\": \"example\",\n  \"last_name\": \"test\",\n  \"phone\": \"+96399999999\",\n  \"profile_picture\": null\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update Profile",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzg5NjQ2ODM1LCJpYXQiOjE3ODk2NDU5MzUsImp0aSI6IjRiMGUyY2NiYmI0YzRkMTE4NjM5YjI5MzNhNWQ2YTk2IiwidXNlcl9pZCI6IjExIn0.w276kCfEsfR9nTr2TXe2MYmnSPQcdNUi3aeeX0Y3-Mk",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"first_name\" : \"Mohsen\",\r\n    \"last_name\" : \"Sleman\",\r\n    \"phone\" : \"+963000000000\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/users/profile/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "users",
+                "profile",
+                ""
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Successfully Updated - 200 OK",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"first_name\" : \"Mohsen\",\r\n    \"last_name\" : \"Sleman\",\r\n    \"phone\" : \"+963000000000\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/users/profile/",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "users",
+                    "profile",
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Thu, 17 Sep 2026 12:44:28 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "allow",
+                  "value": "GET, PUT, PATCH, HEAD, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "126"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"email\": \"example@gmail.com\",\n  \"first_name\": \"Mohsen\",\n  \"last_name\": \"Sleman\",\n  \"phone\": \"+963000000000\",\n  \"profile_picture\": null\n}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
