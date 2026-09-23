@@ -34,6 +34,7 @@ ALLOWED_HOSTS = config("ALLOWED_HOSTS", default="", cast=lambda v: v.split(","))
 INSTALLED_APPS = [
     #apps
     'users',
+    'products',
 
     'rest_framework',
     'rest_framework_simplejwt.token_blacklist',
