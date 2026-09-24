@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     #apps
     'users',
     'products',
+    'carts',
 
     'rest_framework',
     'rest_framework_simplejwt.token_blacklist',
