@@ -2,7 +2,7 @@
   "info": {
     "_exporter_id": "36183815",
     "_postman_id": "d87b4f20-f8a0-48cc-bb31-866f697e7d90",
-    "name": "e-comerce API",
+    "name": "NexaCart",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item": [
@@ -4995,6 +4995,1036 @@
         }
       ],
       "name": "Carts"
+    },
+    {
+      "item": [
+        {
+          "name": "List My Addresses",
+          "request": {
+            "auth": {
+              "bearer": [
+                {
+                  "key": "token",
+                  "type": "string",
+                  "value": "{{access_token}}"
+                }
+              ],
+              "type": "bearer"
+            },
+            "header": [],
+            "method": "GET",
+            "url": {
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "addresses",
+                ""
+              ],
+              "raw": "{{base_url}}/api/addresses/"
+            }
+          },
+          "response": [
+            {
+              "_postman_previewlanguage": "json",
+              "body": "[\n  {\n    \"id\": 1,\n    \"country\": \"Syria\",\n    \"city\": \"Damascus\",\n    \"street\": \"Al Mazzeh St, Bldg 12\",\n    \"full_name\": \"Tester\",\n    \"phone\": \"+96312341234\",\n    \"building\": \"12\",\n    \"apartment\": \"3\",\n    \"postal_code\": \"22222\",\n    \"is_default\": false,\n    \"created_at\": \"2026-09-24T10:44:15.701847Z\",\n    \"updated_at\": \"2026-09-24T11:16:49.342771Z\"\n  },\n  {\n    \"id\": 3,\n    \"country\": \"Syria\",\n    \"city\": \"Damascus\",\n    \"street\": \"Mazzeh Autostrad - Work\",\n    \"full_name\": \"Tester\",\n    \"phone\": \"+96312341234\",\n    \"building\": null,\n    \"apartment\": null,\n    \"postal_code\": null,\n    \"is_default\": false,\n    \"created_at\": \"2026-09-24T10:44:15.707466Z\",\n    \"updated_at\": \"2026-09-24T10:44:15.707486Z\"\n  },\n  {\n    \"id\": 5,\n    \"country\": \"Syria\",\n    \"city\": \"Latakia\",\n    \"street\": \"Corniche St\",\n    \"full_name\": \"Tester\",\n    \"phone\": \"+96312341234\",\n    \"building\": \"5\",\n    \"apartment\": \"2\",\n    \"postal_code\": \"11111\",\n    \"is_default\": false,\n    \"created_at\": \"2026-09-24T11:06:57.450597Z\",\n    \"updated_at\": \"2026-09-24T11:06:57.450620Z\"\n  },\n  {\n    \"id\": 6,\n    \"country\": \"Syria\",\n    \"city\": \"Aleppo\",\n    \"street\": \"Al Furqan St\",\n    \"full_name\": \"Cart TesterOne\",\n    \"phone\": \"+963900000002\",\n    \"building\": null,\n    \"apartment\": null,\n    \"postal_code\": null,\n    \"is_default\": true,\n    \"created_at\": \"2026-09-25T11:28:10.740934Z\",\n    \"updated_at\": \"2026-09-25T11:28:10.740961Z\"\n  }\n]",
+              "code": 200,
+              "cookie": [],
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Fri, 25 Sep 2026 11:30:42 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "allow",
+                  "value": "GET, POST, HEAD, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "1108"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "name": "Success - 200 OK",
+              "originalRequest": {
+                "header": [],
+                "method": "GET",
+                "url": {
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "addresses",
+                    ""
+                  ],
+                  "raw": "{{base_url}}/api/addresses/"
+                }
+              },
+              "status": "OK"
+            }
+          ]
+        },
+        {
+          "name": "Address Details",
+          "request": {
+            "auth": {
+              "bearer": [
+                {
+                  "key": "token",
+                  "type": "string",
+                  "value": "{{access_token}}"
+                }
+              ],
+              "type": "bearer"
+            },
+            "header": [],
+            "method": "GET",
+            "url": {
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "addresses",
+                "1",
+                ""
+              ],
+              "raw": "{{base_url}}/api/addresses/1/"
+            }
+          },
+          "response": [
+            {
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"id\": 1,\n  \"country\": \"Syria\",\n  \"city\": \"Damascus\",\n  \"street\": \"Al Mazzeh St, Bldg 12\",\n  \"full_name\": \"Tester\",\n  \"phone\": \"+96312341234\",\n  \"building\": \"12\",\n  \"apartment\": \"3\",\n  \"postal_code\": \"22222\",\n  \"is_default\": false,\n  \"created_at\": \"2026-09-24T10:44:15.701847Z\",\n  \"updated_at\": \"2026-09-24T11:16:49.342771Z\"\n}",
+              "code": 200,
+              "cookie": [],
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Fri, 25 Sep 2026 11:31:20 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "allow",
+                  "value": "GET, PATCH, DELETE, HEAD, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "280"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "name": "Success - 200 OK",
+              "originalRequest": {
+                "header": [],
+                "method": "GET",
+                "url": {
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "addresses",
+                    "1",
+                    ""
+                  ],
+                  "raw": "{{base_url}}/api/addresses/1/"
+                }
+              },
+              "status": "OK"
+            },
+            {
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"detail\": \"No Address matches the given query.\"\n}",
+              "code": 404,
+              "cookie": [],
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Thu, 24 Sep 2026 11:23:05 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "allow",
+                  "value": "GET, PATCH, DELETE, HEAD, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "48"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "name": "Not Found - 404",
+              "originalRequest": {
+                "header": [],
+                "method": "GET",
+                "url": {
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "addresses",
+                    "999",
+                    ""
+                  ],
+                  "raw": "{{base_url}}/api/addresses/999/"
+                }
+              },
+              "status": "Not Found"
+            }
+          ]
+        },
+        {
+          "name": "Access Another User's Address (should 404)",
+          "request": {
+            "auth": {
+              "bearer": [
+                {
+                  "key": "token",
+                  "type": "string",
+                  "value": "{{access_token}}"
+                }
+              ],
+              "type": "bearer"
+            },
+            "description": "Swap in an address id that belongs to the OTHER seeded user (e.g. cart.tester2's address id) while logged in as cart.tester1, to confirm cross-user access 404s instead of 403.",
+            "header": [],
+            "method": "GET",
+            "url": {
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "addresses",
+                "999",
+                ""
+              ],
+              "raw": "{{base_url}}/api/addresses/999/"
+            }
+          },
+          "response": [
+            {
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"detail\": \"No Address matches the given query.\"\n}",
+              "code": 404,
+              "cookie": [],
+              "header": [
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                }
+              ],
+              "name": "Not Found - 404",
+              "originalRequest": {
+                "header": [],
+                "method": "GET",
+                "url": {
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "addresses",
+                    "999",
+                    ""
+                  ],
+                  "raw": "{{base_url}}/api/addresses/999/"
+                }
+              },
+              "status": "Not Found"
+            }
+          ]
+        },
+        {
+          "name": "Create Address",
+          "request": {
+            "auth": {
+              "bearer": [
+                {
+                  "key": "token",
+                  "type": "string",
+                  "value": "{{access_token}}"
+                }
+              ],
+              "type": "bearer"
+            },
+            "body": {
+              "mode": "raw",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              },
+              "raw": "{\n  \"country\": \"Syria\",\n  \"city\": \"Latakia\",\n  \"street\": \"Corniche St\",\n  \"full_name\" : \"Tester\",\n  \"phone\" : \"+963123456789\",\n  \"building\": \"5\",\n  \"apartment\": \"2\",\n  \"postal_code\": \"11111\"\n}"
+            },
+            "header": [],
+            "method": "POST",
+            "url": {
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "addresses",
+                ""
+              ],
+              "raw": "{{base_url}}/api/addresses/"
+            }
+          },
+          "response": [
+            {
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"id\": 7,\n  \"country\": \"Syria\",\n  \"city\": \"Latakia\",\n  \"street\": \"Corniche St\",\n  \"full_name\": \"Tester\",\n  \"phone\": \"+963123456789\",\n  \"building\": \"5\",\n  \"apartment\": \"2\",\n  \"postal_code\": \"11111\",\n  \"is_default\": false,\n  \"created_at\": \"2026-09-25T11:33:04.613136Z\",\n  \"updated_at\": \"2026-09-25T11:33:04.613157Z\"\n}",
+              "code": 201,
+              "cookie": [],
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Fri, 25 Sep 2026 11:33:04 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "allow",
+                  "value": "GET, POST, HEAD, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "269"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "name": "Created - 201 (not first address, stays non-default)",
+              "originalRequest": {
+                "body": {
+                  "mode": "raw",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  },
+                  "raw": "{\n  \"country\": \"Syria\",\n  \"city\": \"Latakia\",\n  \"street\": \"Corniche St\",\n  \"full_name\" : \"Tester\",\n  \"phone\" : \"+963123456789\",\n  \"building\": \"5\",\n  \"apartment\": \"2\",\n  \"postal_code\": \"11111\"\n}"
+                },
+                "header": [],
+                "method": "POST",
+                "url": {
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "addresses",
+                    ""
+                  ],
+                  "raw": "{{base_url}}/api/addresses/"
+                }
+              },
+              "status": "Created"
+            },
+            {
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"detail\": \"Authentication credentials were not provided.\"\n}",
+              "code": 401,
+              "cookie": [],
+              "header": [
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                }
+              ],
+              "name": "Unauthorized - No Token - 401",
+              "originalRequest": {
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"country\": \"Syria\",\n  \"city\": \"Latakia\",\n  \"street\": \"Corniche St\"\n}"
+                },
+                "header": [],
+                "method": "POST",
+                "url": {
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "addresses",
+                    ""
+                  ],
+                  "raw": "{{base_url}}/api/addresses/"
+                }
+              },
+              "status": "Unauthorized"
+            }
+          ]
+        },
+        {
+          "name": "Update Address Fields",
+          "request": {
+            "auth": {
+              "bearer": [
+                {
+                  "key": "token",
+                  "type": "string",
+                  "value": "{{access_token}}"
+                }
+              ],
+              "type": "bearer"
+            },
+            "body": {
+              "mode": "raw",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              },
+              "raw": "{\n  \"postal_code\": \"22222\"\n}"
+            },
+            "header": [],
+            "method": "PATCH",
+            "url": {
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "addresses",
+                "1",
+                ""
+              ],
+              "raw": "{{base_url}}/api/addresses/1/"
+            }
+          },
+          "response": [
+            {
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"id\": 1,\n  \"country\": \"Syria\",\n  \"city\": \"Damascus\",\n  \"street\": \"Al Mazzeh St, Bldg 12\",\n  \"building\": \"12\",\n  \"apartment\": \"3\",\n  \"postal_code\": \"22222\",\n  \"is_default\": false,\n  \"created_at\": \"2026-09-24T10:44:15.701847Z\",\n  \"updated_at\": \"2026-09-24T11:13:27.147432Z\"\n}",
+              "code": 200,
+              "cookie": [],
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Thu, 24 Sep 2026 11:13:27 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "allow",
+                  "value": "GET, PATCH, DELETE, HEAD, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "236"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "name": "Updated Successfully - 200 OK",
+              "originalRequest": {
+                "body": {
+                  "mode": "raw",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  },
+                  "raw": "{\n  \"postal_code\": \"22222\"\n}"
+                },
+                "header": [],
+                "method": "PATCH",
+                "url": {
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "addresses",
+                    "1",
+                    ""
+                  ],
+                  "raw": "{{base_url}}/api/addresses/1/"
+                }
+              },
+              "status": "OK"
+            },
+            {
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"detail\": \"No Address matches the given query.\"\n}",
+              "code": 404,
+              "cookie": [],
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Thu, 24 Sep 2026 11:18:56 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "allow",
+                  "value": "GET, PATCH, DELETE, HEAD, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "48"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "name": "Not Found - 404",
+              "originalRequest": {
+                "body": {
+                  "mode": "raw",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  },
+                  "raw": "{\n  \"postal_code\": \"22222\"\n}"
+                },
+                "header": [],
+                "method": "PATCH",
+                "url": {
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "addresses",
+                    "999",
+                    ""
+                  ],
+                  "raw": "{{base_url}}/api/addresses/999/"
+                }
+              },
+              "status": "Not Found"
+            }
+          ]
+        },
+        {
+          "name": "Set Address as Default",
+          "request": {
+            "auth": {
+              "bearer": [
+                {
+                  "key": "token",
+                  "type": "string",
+                  "value": "{{access_token}}"
+                }
+              ],
+              "type": "bearer"
+            },
+            "body": {
+              "mode": "raw",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              },
+              "raw": "{\n  \"is_default\": true\n}"
+            },
+            "header": [],
+            "method": "PATCH",
+            "url": {
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "addresses",
+                "1",
+                ""
+              ],
+              "raw": "{{base_url}}/api/addresses/1/"
+            }
+          },
+          "response": [
+            {
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"id\": 1,\n  \"country\": \"Syria\",\n  \"city\": \"Damascus\",\n  \"street\": \"Al Mazzeh St, Bldg 12\",\n  \"building\": \"12\",\n  \"apartment\": \"3\",\n  \"postal_code\": \"00000\",\n  \"is_default\": true,\n  \"created_at\": \"2026-09-24T08:00:00Z\",\n  \"updated_at\": \"2026-09-24T09:05:00Z\"\n}",
+              "code": 200,
+              "cookie": [],
+              "header": [
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                }
+              ],
+              "name": "Success - 200 OK (previous default auto-unset)",
+              "originalRequest": {
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"is_default\": true\n}"
+                },
+                "header": [],
+                "method": "PATCH",
+                "url": {
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "addresses",
+                    "1",
+                    ""
+                  ],
+                  "raw": "{{base_url}}/api/addresses/1/"
+                }
+              },
+              "status": "OK"
+            },
+            {
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"detail\": \"No Address matches the given query.\"\n}",
+              "code": 404,
+              "cookie": [],
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Thu, 24 Sep 2026 11:18:07 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "allow",
+                  "value": "GET, PATCH, DELETE, HEAD, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "48"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "name": "Not Found - 404",
+              "originalRequest": {
+                "body": {
+                  "mode": "raw",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  },
+                  "raw": "{\n  \"is_default\": true\n}"
+                },
+                "header": [],
+                "method": "PATCH",
+                "url": {
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "addresses",
+                    "999",
+                    ""
+                  ],
+                  "raw": "{{base_url}}/api/addresses/999/"
+                }
+              },
+              "status": "Not Found"
+            }
+          ]
+        },
+        {
+          "name": "Delete Default Address (blocked)",
+          "request": {
+            "auth": {
+              "bearer": [
+                {
+                  "key": "token",
+                  "type": "string",
+                  "value": "{{access_token}}"
+                }
+              ],
+              "type": "bearer"
+            },
+            "description": "id=2 is the default address for cart.tester1 in the seed data. Also try this against cart.tester2's only address to confirm it's blocked even with zero alternatives.",
+            "header": [],
+            "method": "DELETE",
+            "url": {
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "addresses",
+                "1",
+                ""
+              ],
+              "raw": "{{base_url}}/api/addresses/1/"
+            }
+          },
+          "response": [
+            {
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"detail\": \"Cannot delete your default address. Set a different address as default first.\"\n}",
+              "code": 400,
+              "cookie": [],
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Thu, 24 Sep 2026 11:24:26 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "allow",
+                  "value": "GET, PATCH, DELETE, HEAD, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "90"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "name": "Blocked - 400 Bad Request",
+              "originalRequest": {
+                "header": [],
+                "method": "DELETE",
+                "url": {
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "addresses",
+                    "1",
+                    ""
+                  ],
+                  "raw": "{{base_url}}/api/addresses/1/"
+                }
+              },
+              "status": "Bad Request"
+            }
+          ]
+        },
+        {
+          "name": "Delete Non-Default Address",
+          "request": {
+            "auth": {
+              "bearer": [
+                {
+                  "key": "token",
+                  "type": "string",
+                  "value": "{{access_token}}"
+                }
+              ],
+              "type": "bearer"
+            },
+            "header": [],
+            "method": "DELETE",
+            "url": {
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "addresses",
+                "2",
+                ""
+              ],
+              "raw": "{{base_url}}/api/addresses/2/"
+            }
+          },
+          "response": [
+            {
+              "_postman_previewlanguage": "json",
+              "body": "",
+              "code": 204,
+              "cookie": [],
+              "header": [],
+              "name": "Success - 204 No Content",
+              "originalRequest": {
+                "header": [],
+                "method": "DELETE",
+                "url": {
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "addresses",
+                    "3",
+                    ""
+                  ],
+                  "raw": "{{base_url}}/api/addresses/3/"
+                }
+              },
+              "status": "No Content"
+            },
+            {
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"detail\": \"No Address matches the given query.\"\n}",
+              "code": 404,
+              "cookie": [],
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Thu, 24 Sep 2026 11:25:22 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "allow",
+                  "value": "GET, PATCH, DELETE, HEAD, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "48"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "name": "Not Found - 404",
+              "originalRequest": {
+                "header": [],
+                "method": "DELETE",
+                "url": {
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "addresses",
+                    "2",
+                    ""
+                  ],
+                  "raw": "{{base_url}}/api/addresses/2/"
+                }
+              },
+              "status": "Not Found"
+            }
+          ]
+        }
+      ],
+      "name": "Addresses"
     }
   ]
 }
