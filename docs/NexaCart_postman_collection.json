@@ -6025,6 +6025,931 @@
         }
       ],
       "name": "Addresses"
+    },
+    {
+      "item": [
+        {
+          "name": "Preview - Valid Percentage Coupon",
+          "request": {
+            "auth": {
+              "bearer": [
+                {
+                  "key": "token",
+                  "type": "string",
+                  "value": "{{access_token}}"
+                }
+              ],
+              "type": "bearer"
+            },
+            "body": {
+              "mode": "raw",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              },
+              "raw": "{\n  \"code\": \"SAVE20\"\n}"
+            },
+            "header": [],
+            "method": "POST",
+            "url": {
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "coupons",
+                "preview",
+                ""
+              ],
+              "raw": "{{base_url}}/api/coupons/preview/"
+            }
+          },
+          "response": [
+            {
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"code\": \"SAVE20\",\n  \"subtotal\": \"919.00\",\n  \"discount_amount\": \"100.00\",\n  \"total_after_discount\": \"819.00\"\n}",
+              "code": 200,
+              "cookie": [],
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Sat, 26 Sep 2026 08:57:19 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "96"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "name": "Success - 200 OK (capped by max_discount_amount)",
+              "originalRequest": {
+                "body": {
+                  "mode": "raw",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  },
+                  "raw": "{\n  \"code\": \"SAVE20\"\n}"
+                },
+                "header": [],
+                "method": "POST",
+                "url": {
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "coupons",
+                    "preview",
+                    ""
+                  ],
+                  "raw": "{{base_url}}/api/coupons/preview/"
+                }
+              },
+              "status": "OK"
+            }
+          ]
+        },
+        {
+          "name": "Preview - Unknown Code",
+          "request": {
+            "auth": {
+              "bearer": [
+                {
+                  "key": "token",
+                  "type": "string",
+                  "value": "{{access_token}}"
+                }
+              ],
+              "type": "bearer"
+            },
+            "body": {
+              "mode": "raw",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              },
+              "raw": "{\n  \"code\": \"DOESNOTEXIST\"\n}"
+            },
+            "header": [],
+            "method": "POST",
+            "url": {
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "coupons",
+                "preview",
+                ""
+              ],
+              "raw": "{{base_url}}/api/coupons/preview/"
+            }
+          },
+          "response": [
+            {
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"code\": [\n    \"Invalid coupon code.\"\n  ]\n}",
+              "code": 400,
+              "cookie": [],
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Sat, 26 Sep 2026 09:01:41 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "33"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "name": "Rejected - 400 Bad Request",
+              "originalRequest": {
+                "body": {
+                  "mode": "raw",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  },
+                  "raw": "{\n  \"code\": \"DOESNOTEXIST\"\n}"
+                },
+                "header": [],
+                "method": "POST",
+                "url": {
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "coupons",
+                    "preview",
+                    ""
+                  ],
+                  "raw": "{{base_url}}/api/coupons/preview/"
+                }
+              },
+              "status": "Bad Request"
+            }
+          ]
+        },
+        {
+          "name": "Preview - Below Minimum Order Amount",
+          "request": {
+            "auth": {
+              "bearer": [
+                {
+                  "key": "token",
+                  "type": "string",
+                  "value": "{{access_token}}"
+                }
+              ],
+              "type": "bearer"
+            },
+            "body": {
+              "mode": "raw",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              },
+              "raw": "{\n  \"code\": \"BIGSPENDER\"\n}"
+            },
+            "header": [],
+            "method": "POST",
+            "url": {
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "coupons",
+                "preview",
+                ""
+              ],
+              "raw": "{{base_url}}/api/coupons/preview/"
+            }
+          },
+          "response": [
+            {
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"detail\": \"Order must be at least 5000.00 to use this coupon.\"\n}",
+              "code": 400,
+              "cookie": [],
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Sat, 26 Sep 2026 09:25:53 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "63"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "name": "Rejected - 400 Bad Request",
+              "originalRequest": {
+                "body": {
+                  "mode": "raw",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  },
+                  "raw": "{\n  \"code\": \"BIGSPENDER\"\n}"
+                },
+                "header": [],
+                "method": "POST",
+                "url": {
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "coupons",
+                    "preview",
+                    ""
+                  ],
+                  "raw": "{{base_url}}/api/coupons/preview/"
+                }
+              },
+              "status": "Bad Request"
+            }
+          ]
+        },
+        {
+          "name": "Preview - Valid Fixed Coupon",
+          "request": {
+            "auth": {
+              "bearer": [
+                {
+                  "key": "token",
+                  "type": "string",
+                  "value": "{{access_token}}"
+                }
+              ],
+              "type": "bearer"
+            },
+            "body": {
+              "mode": "raw",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              },
+              "raw": "{\n  \"code\": \"FLAT10\"\n}"
+            },
+            "header": [],
+            "method": "POST",
+            "url": {
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "coupons",
+                "preview",
+                ""
+              ],
+              "raw": "{{base_url}}/api/coupons/preview/"
+            }
+          },
+          "response": [
+            {
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"code\": \"FLAT10\",\n  \"subtotal\": \"919.00\",\n  \"discount_amount\": \"10.00\",\n  \"total_after_discount\": \"909.00\"\n}",
+              "code": 200,
+              "cookie": [],
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Sat, 26 Sep 2026 09:28:34 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "95"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "name": "Success - 200 OK",
+              "originalRequest": {
+                "body": {
+                  "mode": "raw",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  },
+                  "raw": "{\n  \"code\": \"FLAT10\"\n}"
+                },
+                "header": [],
+                "method": "POST",
+                "url": {
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "coupons",
+                    "preview",
+                    ""
+                  ],
+                  "raw": "{{base_url}}/api/coupons/preview/"
+                }
+              },
+              "status": "OK"
+            }
+          ]
+        },
+        {
+          "name": "Preview - Expired Coupon",
+          "request": {
+            "auth": {
+              "bearer": [
+                {
+                  "key": "token",
+                  "type": "string",
+                  "value": "{{access_token}}"
+                }
+              ],
+              "type": "bearer"
+            },
+            "body": {
+              "mode": "raw",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              },
+              "raw": "{\n  \"code\": \"EXPIRED10\"\n}"
+            },
+            "header": [],
+            "method": "POST",
+            "url": {
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "coupons",
+                "preview",
+                ""
+              ],
+              "raw": "{{base_url}}/api/coupons/preview/"
+            }
+          },
+          "response": [
+            {
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"detail\": \"This coupon is not currently valid.\"\n}",
+              "code": 400,
+              "cookie": [],
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Sat, 26 Sep 2026 09:29:54 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "48"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "name": "Rejected - 400 Bad Request",
+              "originalRequest": {
+                "body": {
+                  "mode": "raw",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  },
+                  "raw": "{\n  \"code\": \"EXPIRED10\"\n}"
+                },
+                "header": [],
+                "method": "POST",
+                "url": {
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "coupons",
+                    "preview",
+                    ""
+                  ],
+                  "raw": "{{base_url}}/api/coupons/preview/"
+                }
+              },
+              "status": "Bad Request"
+            }
+          ]
+        },
+        {
+          "name": "Preview - Deactivated Coupon",
+          "request": {
+            "auth": {
+              "bearer": [
+                {
+                  "key": "token",
+                  "type": "string",
+                  "value": "{{access_token}}"
+                }
+              ],
+              "type": "bearer"
+            },
+            "body": {
+              "mode": "raw",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              },
+              "raw": "{\n  \"code\": \"DISABLED10\"\n}"
+            },
+            "header": [],
+            "method": "POST",
+            "url": {
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "coupons",
+                "preview",
+                ""
+              ],
+              "raw": "{{base_url}}/api/coupons/preview/"
+            }
+          },
+          "response": [
+            {
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"detail\": \"This coupon is not active.\"\n}",
+              "code": 400,
+              "cookie": [],
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Sat, 26 Sep 2026 09:31:42 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "39"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "name": "Rejected - 400 Bad Request",
+              "originalRequest": {
+                "body": {
+                  "mode": "raw",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  },
+                  "raw": "{\n  \"code\": \"DISABLED10\"\n}"
+                },
+                "header": [],
+                "method": "POST",
+                "url": {
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "coupons",
+                    "preview",
+                    ""
+                  ],
+                  "raw": "{{base_url}}/api/coupons/preview/"
+                }
+              },
+              "status": "Bad Request"
+            }
+          ]
+        },
+        {
+          "name": "Preview - Usage Limit Reached",
+          "request": {
+            "auth": {
+              "bearer": [
+                {
+                  "key": "token",
+                  "type": "string",
+                  "value": "{{access_token}}"
+                }
+              ],
+              "type": "bearer"
+            },
+            "body": {
+              "mode": "raw",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              },
+              "raw": "{\n  \"code\": \"SOLDOUT5\"\n}"
+            },
+            "header": [],
+            "method": "POST",
+            "url": {
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "coupons",
+                "preview",
+                ""
+              ],
+              "raw": "{{base_url}}/api/coupons/preview/"
+            }
+          },
+          "response": [
+            {
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"detail\": \"This coupon has reached its usage limit.\"\n}",
+              "code": 400,
+              "cookie": [],
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Sat, 26 Sep 2026 09:32:56 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "53"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "name": "Rejected - 400 Bad Request",
+              "originalRequest": {
+                "body": {
+                  "mode": "raw",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  },
+                  "raw": "{\n  \"code\": \"SOLDOUT5\"\n}"
+                },
+                "header": [],
+                "method": "POST",
+                "url": {
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "coupons",
+                    "preview",
+                    ""
+                  ],
+                  "raw": "{{base_url}}/api/coupons/preview/"
+                }
+              },
+              "status": "Bad Request"
+            }
+          ]
+        },
+        {
+          "name": "Preview - Not Active Yet",
+          "request": {
+            "auth": {
+              "bearer": [
+                {
+                  "key": "token",
+                  "type": "string",
+                  "value": "{{access_token}}"
+                }
+              ],
+              "type": "bearer"
+            },
+            "body": {
+              "mode": "raw",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              },
+              "raw": "{\n  \"code\": \"FUTURE10\"\n}"
+            },
+            "header": [],
+            "method": "POST",
+            "url": {
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "coupons",
+                "preview",
+                ""
+              ],
+              "raw": "{{base_url}}/api/coupons/preview/"
+            }
+          },
+          "response": [
+            {
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"detail\": \"This coupon is not currently valid.\"\n}",
+              "code": 400,
+              "cookie": [],
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Sat, 26 Sep 2026 09:35:35 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "48"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "name": "Rejected - 400 Bad Request",
+              "originalRequest": {
+                "body": {
+                  "mode": "raw",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  },
+                  "raw": "{\n  \"code\": \"FUTURE10\"\n}"
+                },
+                "header": [],
+                "method": "POST",
+                "url": {
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "coupons",
+                    "preview",
+                    ""
+                  ],
+                  "raw": "{{base_url}}/api/coupons/preview/"
+                }
+              },
+              "status": "Bad Request"
+            }
+          ]
+        }
+      ],
+      "name": "Coupons"
     }
   ]
 }
