@@ -4386,7 +4386,7 @@
                 {
                   "key": "token",
                   "type": "string",
-                  "value": "{{user_access_token}}"
+                  "value": "{{access_token}}"
                 }
               ],
               "type": "bearer"
@@ -6950,6 +6950,1032 @@
         }
       ],
       "name": "Coupons"
+    },
+    {
+      "item": [
+        {
+          "name": "Checkout - Success (no coupon)",
+          "request": {
+            "auth": {
+              "bearer": [
+                {
+                  "key": "token",
+                  "type": "string",
+                  "value": "{{access_token}}"
+                }
+              ],
+              "type": "bearer"
+            },
+            "body": {
+              "mode": "raw",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              },
+              "raw": "{\n  \"address_id\": 1\n}"
+            },
+            "header": [],
+            "method": "POST",
+            "url": {
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "checkout",
+                ""
+              ],
+              "raw": "{{base_url}}/api/checkout/"
+            }
+          },
+          "response": [
+            {
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"id\": 1,\n  \"status\": \"pending\",\n  \"payment_method\": \"cod\",\n  \"payment_status\": \"unpaid\",\n  \"subtotal\": \"1698.00\",\n  \"discount_amount\": \"0.00\",\n  \"shipping_fee\": \"5.00\",\n  \"total_amount\": \"1703.00\",\n  \"full_name\": \"Cart TesterOne\",\n  \"phone\": \"+963900000001\",\n  \"country\": \"Syria\",\n  \"city\": \"Damascus\",\n  \"street\": \"Al Mazzeh St, Bldg 12\",\n  \"building\": \"12\",\n  \"apartment\": \"3\",\n  \"postal_code\": \"00000\",\n  \"items\": [\n    {\n      \"id\": 1,\n      \"product_name\": \"iPhone 15\",\n      \"sku\": \"IPH15-128\",\n      \"unit_price\": \"799.00\",\n      \"quantity\": 1,\n      \"subtotal\": \"799.00\"\n    },\n    {\n      \"id\": 2,\n      \"product_name\": \"iPhone 15\",\n      \"sku\": \"IPH15-256\",\n      \"unit_price\": \"899.00\",\n      \"quantity\": 1,\n      \"subtotal\": \"899.00\"\n    }\n  ],\n  \"created_at\": \"2026-09-27T09:00:00Z\",\n  \"updated_at\": \"2026-09-27T09:00:00Z\"\n}",
+              "code": 201,
+              "cookie": [],
+              "header": [
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                }
+              ],
+              "name": "Checkout Successfully - 201 Created",
+              "originalRequest": {
+                "body": {
+                  "mode": "raw",
+                  "options": {
+                    "raw": {
+                      "language": "text"
+                    }
+                  },
+                  "raw": "{\n  \"address_id\": 1\n}"
+                },
+                "header": [],
+                "method": "POST",
+                "url": {
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "checkout",
+                    ""
+                  ],
+                  "raw": "{{base_url}}/api/checkout/"
+                }
+              },
+              "status": "Created"
+            }
+          ]
+        },
+        {
+          "name": "Checkout - Success (with coupon FLAT10)",
+          "request": {
+            "auth": {
+              "bearer": [
+                {
+                  "key": "token",
+                  "type": "string",
+                  "value": "{{access_token}}"
+                }
+              ],
+              "type": "bearer"
+            },
+            "body": {
+              "mode": "raw",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              },
+              "raw": "{\n  \"address_id\": 1,\n  \"coupon_code\": \"FLAT10\"\n}"
+            },
+            "description": "Re-add items to the cart first (POST /api/cart/items/) if you already emptied it with the previous request - checkout empties the cart on success.",
+            "header": [],
+            "method": "POST",
+            "url": {
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "checkout",
+                ""
+              ],
+              "raw": "{{base_url}}/api/checkout/"
+            }
+          },
+          "response": [
+            {
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"id\": 4,\n  \"status\": \"pending\",\n  \"payment_method\": \"cod\",\n  \"payment_status\": \"unpaid\",\n  \"subtotal\": \"1698.00\",\n  \"discount_amount\": \"10.00\",\n  \"shipping_fee\": \"10.00\",\n  \"total_amount\": \"1698.00\",\n  \"full_name\": \"Tester\",\n  \"phone\": \"+96312341234\",\n  \"country\": \"Syria\",\n  \"city\": \"Damascus\",\n  \"street\": \"Al Mazzeh St, Bldg 12\",\n  \"building\": \"12\",\n  \"apartment\": \"3\",\n  \"postal_code\": \"22222\",\n  \"items\": [\n    {\n      \"id\": 5,\n      \"product_name\": \"iPhone 15\",\n      \"sku\": \"IPH15-128\",\n      \"unit_price\": \"799.00\",\n      \"quantity\": 1,\n      \"subtotal\": \"799.00\"\n    },\n    {\n      \"id\": 6,\n      \"product_name\": \"iPhone 15\",\n      \"sku\": \"IPH15-256\",\n      \"unit_price\": \"899.00\",\n      \"quantity\": 1,\n      \"subtotal\": \"899.00\"\n    }\n  ],\n  \"created_at\": \"2026-09-27T09:34:44.939531Z\",\n  \"updated_at\": \"2026-09-27T09:34:44.939553Z\"\n}",
+              "code": 201,
+              "cookie": [],
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Sun, 27 Sep 2026 09:34:44 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "652"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "name": "Checkout Successfully (with coupon FLAT10) - 201 Created",
+              "originalRequest": {
+                "body": {
+                  "mode": "raw",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  },
+                  "raw": "{\n  \"address_id\": 1,\n  \"coupon_code\": \"FLAT10\"\n}"
+                },
+                "header": [],
+                "method": "POST",
+                "url": {
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "checkout",
+                    ""
+                  ],
+                  "raw": "{{base_url}}/api/checkout/"
+                }
+              },
+              "status": "Created"
+            }
+          ]
+        },
+        {
+          "name": "Checkout - Rejected (coupon already used)",
+          "request": {
+            "auth": {
+              "bearer": [
+                {
+                  "key": "token",
+                  "type": "string",
+                  "value": "{{access_token}}"
+                }
+              ],
+              "type": "bearer"
+            },
+            "body": {
+              "mode": "raw",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              },
+              "raw": "{\n  \"address_id\": 1,\n  \"coupon_code\": \"SAVE20\"\n}"
+            },
+            "description": "seed_orders marks SAVE20 as already used by user1, so this should always be rejected for this account.",
+            "header": [],
+            "method": "POST",
+            "url": {
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "checkout",
+                ""
+              ],
+              "raw": "{{base_url}}/api/checkout/"
+            }
+          },
+          "response": [
+            {
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"detail\": \"You have already used this coupon.\"\n}",
+              "code": 400,
+              "cookie": [],
+              "header": [
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                }
+              ],
+              "name": "Bad Request - 400",
+              "originalRequest": {
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"address_id\": 1,\n  \"coupon_code\": \"SAVE20\"\n}"
+                },
+                "header": [],
+                "method": "POST",
+                "url": {
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "checkout",
+                    ""
+                  ],
+                  "raw": "{{base_url}}/api/checkout/"
+                }
+              },
+              "status": "Bad Request"
+            }
+          ]
+        },
+        {
+          "name": "Checkout - Rejected (not enough stock)",
+          "request": {
+            "auth": {
+              "bearer": [
+                {
+                  "key": "token",
+                  "type": "string",
+                  "value": "{{access_token}}"
+                }
+              ],
+              "type": "bearer"
+            },
+            "body": {
+              "mode": "raw",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              },
+              "raw": "{\n  \"address_id\": 1\n}"
+            },
+            "header": [],
+            "method": "POST",
+            "url": {
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "checkout",
+                ""
+              ],
+              "raw": "{{base_url}}/api/checkout/"
+            }
+          },
+          "response": [
+            {
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"detail\": \"Not enough stock for IPH15-256. Available: 1, requested: 2.\"\n}",
+              "code": 400,
+              "cookie": [],
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Sun, 27 Sep 2026 09:42:39 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "72"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "name": "Rejected (not enough stock) - 400 Bad Request",
+              "originalRequest": {
+                "body": {
+                  "mode": "raw",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  },
+                  "raw": "{\n  \"address_id\": 1\n}"
+                },
+                "header": [],
+                "method": "POST",
+                "url": {
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "checkout",
+                    ""
+                  ],
+                  "raw": "{{base_url}}/api/checkout/"
+                }
+              },
+              "status": "Bad Request"
+            }
+          ]
+        },
+        {
+          "name": "Checkout - Rejected (address not yours / not found)",
+          "request": {
+            "auth": {
+              "bearer": [
+                {
+                  "key": "token",
+                  "type": "string",
+                  "value": "{{access_token}}"
+                }
+              ],
+              "type": "bearer"
+            },
+            "body": {
+              "mode": "raw",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              },
+              "raw": "{\n  \"address_id\": 999999\n}"
+            },
+            "header": [],
+            "method": "POST",
+            "url": {
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "checkout",
+                ""
+              ],
+              "raw": "{{base_url}}/api/checkout/"
+            }
+          },
+          "response": [
+            {
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"address_id\": [\n    \"Address not found.\"\n  ]\n}",
+              "code": 400,
+              "cookie": [],
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Sun, 27 Sep 2026 09:43:56 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "37"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "name": "Address Not Found - 400 Bad Request",
+              "originalRequest": {
+                "body": {
+                  "mode": "raw",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  },
+                  "raw": "{\n  \"address_id\": 999999\n}"
+                },
+                "header": [],
+                "method": "POST",
+                "url": {
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "checkout",
+                    ""
+                  ],
+                  "raw": "{{base_url}}/api/checkout/"
+                }
+              },
+              "status": "Bad Request"
+            }
+          ]
+        },
+        {
+          "name": "Checkout - Rejected (empty cart)",
+          "request": {
+            "auth": {
+              "bearer": [
+                {
+                  "key": "token",
+                  "type": "string",
+                  "value": "{{access_token}}"
+                }
+              ],
+              "type": "bearer"
+            },
+            "body": {
+              "mode": "raw",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              },
+              "raw": "{\n  \"address_id\": 1\n}"
+            },
+            "description": "Log in as user2 (cart.tester2) - seed_carts leaves their cart empty on purpose.",
+            "header": [],
+            "method": "POST",
+            "url": {
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "checkout",
+                ""
+              ],
+              "raw": "{{base_url}}/api/checkout/"
+            }
+          },
+          "response": [
+            {
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"detail\": \"Your cart is empty.\"\n}",
+              "code": 400,
+              "cookie": [],
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Sun, 27 Sep 2026 09:48:08 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "32"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "name": "Cart is Empty - 400 Bad Request",
+              "originalRequest": {
+                "body": {
+                  "mode": "raw",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  },
+                  "raw": "{\n  \"address_id\": 1\n}"
+                },
+                "header": [],
+                "method": "POST",
+                "url": {
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "checkout",
+                    ""
+                  ],
+                  "raw": "{{base_url}}/api/checkout/"
+                }
+              },
+              "status": "Bad Request"
+            }
+          ]
+        },
+        {
+          "name": "Cancel Order - Success (pending/processing)",
+          "request": {
+            "auth": {
+              "bearer": [
+                {
+                  "key": "token",
+                  "type": "string",
+                  "value": "{{access_token}}"
+                }
+              ],
+              "type": "bearer"
+            },
+            "description": "Use the id of the order you just created above (still 'pending').",
+            "header": [],
+            "method": "POST",
+            "url": {
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "orders",
+                "7",
+                "cancel",
+                ""
+              ],
+              "raw": "{{base_url}}/api/orders/7/cancel/"
+            }
+          },
+          "response": [
+            {
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"id\": 1,\n  \"status\": \"cancelled\",\n  \"payment_method\": \"cod\",\n  \"payment_status\": \"unpaid\",\n  \"subtotal\": \"1698.00\",\n  \"discount_amount\": \"0.00\",\n  \"shipping_fee\": \"5.00\",\n  \"total_amount\": \"1703.00\",\n  \"...\": \"...\"\n}",
+              "code": 200,
+              "cookie": [],
+              "header": [
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                }
+              ],
+              "name": "Success - 200 OK (stock restored, coupon usage reversed if any)",
+              "originalRequest": {
+                "header": [],
+                "method": "POST",
+                "url": {
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "orders",
+                    "1",
+                    "cancel",
+                    ""
+                  ],
+                  "raw": "{{base_url}}/api/orders/1/cancel/"
+                }
+              },
+              "status": "OK"
+            },
+            {
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"detail\": \"This order is already cancelled.\"\n}",
+              "code": 400,
+              "cookie": [],
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Sun, 27 Sep 2026 10:00:37 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "45"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "name": "Already Cancelled - 400 Bad Request",
+              "originalRequest": {
+                "header": [],
+                "method": "POST",
+                "url": {
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "orders",
+                    "7",
+                    "cancel",
+                    ""
+                  ],
+                  "raw": "{{base_url}}/api/orders/7/cancel/"
+                }
+              },
+              "status": "Bad Request"
+            }
+          ]
+        },
+        {
+          "name": "Cancel Order - Blocked (already shipped)",
+          "request": {
+            "auth": {
+              "bearer": [
+                {
+                  "key": "token",
+                  "type": "string",
+                  "value": "{{access_token}}"
+                }
+              ],
+              "type": "bearer"
+            },
+            "description": "Use the SHIPPED order id printed by seed_orders.",
+            "header": [],
+            "method": "POST",
+            "url": {
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "orders",
+                "2",
+                "cancel",
+                ""
+              ],
+              "raw": "{{base_url}}/api/orders/2/cancel/"
+            }
+          },
+          "response": [
+            {
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"detail\": \"Only pending or processing orders can be cancelled.\"\n}",
+              "code": 400,
+              "cookie": [],
+              "header": [
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                }
+              ],
+              "name": "Bad Request - 400",
+              "originalRequest": {
+                "header": [],
+                "method": "POST",
+                "url": {
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "orders",
+                    "2",
+                    "cancel",
+                    ""
+                  ],
+                  "raw": "{{base_url}}/api/orders/2/cancel/"
+                }
+              },
+              "status": "Bad Request"
+            }
+          ]
+        },
+        {
+          "name": "List My Orders",
+          "request": {
+            "auth": {
+              "bearer": [
+                {
+                  "key": "token",
+                  "type": "string",
+                  "value": "{{access_token}}"
+                }
+              ],
+              "type": "bearer"
+            },
+            "header": [],
+            "method": "GET",
+            "url": {
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "orders",
+                ""
+              ],
+              "raw": "{{base_url}}/api/orders/"
+            }
+          },
+          "response": [
+            {
+              "_postman_previewlanguage": "json",
+              "body": "[\n  {\n    \"id\": 7,\n    \"status\": \"cancelled\",\n    \"payment_method\": \"cod\",\n    \"payment_status\": \"unpaid\",\n    \"subtotal\": \"1798.00\",\n    \"discount_amount\": \"0.00\",\n    \"shipping_fee\": \"10.00\",\n    \"total_amount\": \"1808.00\",\n    \"full_name\": \"Tester\",\n    \"phone\": \"+96312341234\",\n    \"country\": \"Syria\",\n    \"city\": \"Damascus\",\n    \"street\": \"Al Mazzeh St, Bldg 12\",\n    \"building\": \"12\",\n    \"apartment\": \"3\",\n    \"postal_code\": \"22222\",\n    \"items\": [\n      {\n        \"id\": 9,\n        \"product_name\": \"iPhone 15\",\n        \"sku\": \"IPH15-256\",\n        \"unit_price\": \"899.00\",\n        \"quantity\": 2,\n        \"subtotal\": \"1798.00\"\n      }\n    ],\n    \"created_at\": \"2026-09-27T09:48:05.994377Z\",\n    \"updated_at\": \"2026-09-27T09:48:05.994400Z\"\n  },\n  {\n    \"id\": 6,\n    \"status\": \"pending\",\n    \"payment_method\": \"cod\",\n    \"payment_status\": \"unpaid\",\n    \"subtotal\": \"3995.00\",\n    \"discount_amount\": \"0.00\",\n    \"shipping_fee\": \"10.00\",\n    \"total_amount\": \"4005.00\",\n    \"full_name\": \"Tester\",\n    \"phone\": \"+96312341234\",\n    \"country\": \"Syria\",\n    \"city\": \"Damascus\",\n    \"street\": \"Al Mazzeh St, Bldg 12\",\n    \"building\": \"12\",\n    \"apartment\": \"3\",\n    \"postal_code\": \"22222\",\n    \"items\": [\n      {\n        \"id\": 8,\n        \"product_name\": \"iPhone 15\",\n        \"sku\": \"IPH15-128\",\n        \"unit_price\": \"799.00\",\n        \"quantity\": 5,\n        \"subtotal\": \"3995.00\"\n      }\n    ],\n    \"created_at\": \"2026-09-27T09:40:33.766029Z\",\n    \"updated_at\": \"2026-09-27T09:40:33.766072Z\"\n  },\n  {\n    \"id\": 5,\n    \"status\": \"pending\",\n    \"payment_method\": \"cod\",\n    \"payment_status\": \"unpaid\",\n    \"subtotal\": \"799.00\",\n    \"discount_amount\": \"0.00\",\n    \"shipping_fee\": \"10.00\",\n    \"total_amount\": \"809.00\",\n    \"full_name\": \"Tester\",\n    \"phone\": \"+96312341234\",\n    \"country\": \"Syria\",\n    \"city\": \"Damascus\",\n    \"street\": \"Al Mazzeh St, Bldg 12\",\n    \"building\": \"12\",\n    \"apartment\": \"3\",\n    \"postal_code\": \"22222\",\n    \"items\": [\n      {\n        \"id\": 7,\n        \"product_name\": \"iPhone 15\",\n        \"sku\": \"IPH15-128\",\n        \"unit_price\": \"799.00\",\n        \"quantity\": 1,\n        \"subtotal\": \"799.00\"\n      }\n    ],\n    \"created_at\": \"2026-09-27T09:37:09.505461Z\",\n    \"updated_at\": \"2026-09-27T09:37:09.505483Z\"\n  },\n  {\n    \"id\": 4,\n    \"status\": \"pending\",\n    \"payment_method\": \"cod\",\n    \"payment_status\": \"unpaid\",\n    \"subtotal\": \"1698.00\",\n    \"discount_amount\": \"10.00\",\n    \"shipping_fee\": \"10.00\",\n    \"total_amount\": \"1698.00\",\n    \"full_name\": \"Tester\",\n    \"phone\": \"+96312341234\",\n    \"country\": \"Syria\",\n    \"city\": \"Damascus\",\n    \"street\": \"Al Mazzeh St, Bldg 12\",\n    \"building\": \"12\",\n    \"apartment\": \"3\",\n    \"postal_code\": \"22222\",\n    \"items\": [\n      {\n        \"id\": 5,\n        \"product_name\": \"iPhone 15\",\n        \"sku\": \"IPH15-128\",\n        \"unit_price\": \"799.00\",\n        \"quantity\": 1,\n        \"subtotal\": \"799.00\"\n      },\n      {\n        \"id\": 6,\n        \"product_name\": \"iPhone 15\",\n        \"sku\": \"IPH15-256\",\n        \"unit_price\": \"899.00\",\n        \"quantity\": 1,\n        \"subtotal\": \"899.00\"\n      }\n    ],\n    \"created_at\": \"2026-09-27T09:34:44.939531Z\",\n    \"updated_at\": \"2026-09-27T09:34:44.939553Z\"\n  },\n  {\n    \"id\": 3,\n    \"status\": \"pending\",\n    \"payment_method\": \"cod\",\n    \"payment_status\": \"unpaid\",\n    \"subtotal\": \"1818.00\",\n    \"discount_amount\": \"0.00\",\n    \"shipping_fee\": \"10.00\",\n    \"total_amount\": \"1828.00\",\n    \"full_name\": \"Tester\",\n    \"phone\": \"+96312341234\",\n    \"country\": \"Syria\",\n    \"city\": \"Damascus\",\n    \"street\": \"Al Mazzeh St, Bldg 12\",\n    \"building\": \"12\",\n    \"apartment\": \"3\",\n    \"postal_code\": \"22222\",\n    \"items\": [\n      {\n        \"id\": 2,\n        \"product_name\": \"iPhone 15\",\n        \"sku\": \"IPH15-128\",\n        \"unit_price\": \"799.00\",\n        \"quantity\": 1,\n        \"subtotal\": \"799.00\"\n      },\n      {\n        \"id\": 3,\n        \"product_name\": \"Air Runner 2024\",\n        \"sku\": \"SHOE-BLK-42\",\n        \"unit_price\": \"120.00\",\n        \"quantity\": 1,\n        \"subtotal\": \"120.00\"\n      },\n      {\n        \"id\": 4,\n        \"product_name\": \"iPhone 15\",\n        \"sku\": \"IPH15-256\",\n        \"unit_price\": \"899.00\",\n        \"quantity\": 1,\n        \"subtotal\": \"899.00\"\n      }\n    ],\n    \"created_at\": \"2026-09-27T09:30:15.955067Z\",\n    \"updated_at\": \"2026-09-27T09:30:15.955095Z\"\n  },\n  {\n    \"id\": 2,\n    \"status\": \"delivered\",\n    \"payment_method\": \"cod\",\n    \"payment_status\": \"unpaid\",\n    \"subtotal\": \"50.00\",\n    \"discount_amount\": \"10.00\",\n    \"shipping_fee\": \"5.00\",\n    \"total_amount\": \"45.00\",\n    \"full_name\": \"Cart TesterOne\",\n    \"phone\": \"+963900000001\",\n    \"country\": \"Syria\",\n    \"city\": \"Damascus\",\n    \"street\": \"Al Mazzeh St, Bldg 12\",\n    \"building\": null,\n    \"apartment\": null,\n    \"postal_code\": null,\n    \"items\": [],\n    \"created_at\": \"2026-09-27T08:54:46.234547Z\",\n    \"updated_at\": \"2026-09-27T08:54:46.234571Z\"\n  },\n  {\n    \"id\": 1,\n    \"status\": \"shipped\",\n    \"payment_method\": \"cod\",\n    \"payment_status\": \"unpaid\",\n    \"subtotal\": \"799.00\",\n    \"discount_amount\": \"0.00\",\n    \"shipping_fee\": \"5.00\",\n    \"total_amount\": \"804.00\",\n    \"full_name\": \"Cart TesterOne\",\n    \"phone\": \"+963900000001\",\n    \"country\": \"Syria\",\n    \"city\": \"Damascus\",\n    \"street\": \"Al Mazzeh St, Bldg 12\",\n    \"building\": null,\n    \"apartment\": null,\n    \"postal_code\": null,\n    \"items\": [\n      {\n        \"id\": 1,\n        \"product_name\": \"iPhone 15\",\n        \"sku\": \"IPH15-128\",\n        \"unit_price\": \"799.00\",\n        \"quantity\": 1,\n        \"subtotal\": \"799.00\"\n      }\n    ],\n    \"created_at\": \"2026-09-27T08:54:46.219652Z\",\n    \"updated_at\": \"2026-09-27T08:54:46.219677Z\"\n  }\n]",
+              "code": 200,
+              "cookie": [],
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Sun, 27 Sep 2026 09:55:43 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "allow",
+                  "value": "GET, HEAD, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "4041"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "name": "Success - 200 OK",
+              "originalRequest": {
+                "header": [],
+                "method": "GET",
+                "url": {
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "orders",
+                    ""
+                  ],
+                  "raw": "{{base_url}}/api/orders/"
+                }
+              },
+              "status": "OK"
+            }
+          ]
+        },
+        {
+          "name": "Get Order Detail",
+          "request": {
+            "auth": {
+              "bearer": [
+                {
+                  "key": "token",
+                  "type": "string",
+                  "value": "{{access_token}}"
+                }
+              ],
+              "type": "bearer"
+            },
+            "header": [],
+            "method": "GET",
+            "url": {
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "orders",
+                "999",
+                ""
+              ],
+              "raw": "{{base_url}}/api/orders/999/"
+            }
+          },
+          "response": [
+            {
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"id\": 1,\n  \"status\": \"shipped\",\n  \"payment_method\": \"cod\",\n  \"payment_status\": \"unpaid\",\n  \"subtotal\": \"799.00\",\n  \"discount_amount\": \"0.00\",\n  \"shipping_fee\": \"5.00\",\n  \"total_amount\": \"804.00\",\n  \"full_name\": \"Cart TesterOne\",\n  \"phone\": \"+963900000001\",\n  \"country\": \"Syria\",\n  \"city\": \"Damascus\",\n  \"street\": \"Al Mazzeh St, Bldg 12\",\n  \"building\": null,\n  \"apartment\": null,\n  \"postal_code\": null,\n  \"items\": [\n    {\n      \"id\": 1,\n      \"product_name\": \"iPhone 15\",\n      \"sku\": \"IPH15-128\",\n      \"unit_price\": \"799.00\",\n      \"quantity\": 1,\n      \"subtotal\": \"799.00\"\n    }\n  ],\n  \"created_at\": \"2026-09-27T08:54:46.219652Z\",\n  \"updated_at\": \"2026-09-27T08:54:46.219677Z\"\n}",
+              "code": 200,
+              "cookie": [],
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Sun, 27 Sep 2026 09:52:46 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "allow",
+                  "value": "GET, HEAD, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "546"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "name": "Success - 200 OK",
+              "originalRequest": {
+                "header": [],
+                "method": "GET",
+                "url": {
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "orders",
+                    "1",
+                    ""
+                  ],
+                  "raw": "{{base_url}}/api/orders/1/"
+                }
+              },
+              "status": "OK"
+            },
+            {
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"detail\": \"No Order matches the given query.\"\n}",
+              "code": 404,
+              "cookie": [],
+              "header": [
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                }
+              ],
+              "name": "Not Found - Someone Else's Order - 404",
+              "originalRequest": {
+                "header": [],
+                "method": "GET",
+                "url": {
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "orders",
+                    "999",
+                    ""
+                  ],
+                  "raw": "{{base_url}}/api/orders/999/"
+                }
+              },
+              "status": "Not Found"
+            }
+          ]
+        }
+      ],
+      "name": "Orders"
     }
   ]
 }
