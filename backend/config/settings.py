@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'carts',
     'addresses',
     'coupons',
+    'orders',
 
     'rest_framework',
     'rest_framework_simplejwt.token_blacklist',
@@ -245,3 +246,6 @@ LOGGING = {
         },
     },
 } 
+
+
+FLAT_SHIPPING_FEE = 10.00
