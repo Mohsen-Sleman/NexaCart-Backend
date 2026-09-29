@@ -51,12 +51,14 @@ class ProductListSerializer(serializers.ModelSerializer):
     category = serializers.StringRelatedField()
     min_price = serializers.SerializerMethodField()
     primary_image = serializers.SerializerMethodField()
+    avg_rating = serializers.SerializerMethodField()
+    review_count = serializers.IntegerField(read_only=True)
 
     class Meta:
         model = Product
         fields = [
             'id', 'name', 'slug', 'brand', 'category',
-            'min_price', 'primary_image', 'is_active',
+            'min_price', 'primary_image','avg_rating', 'review_count', 'is_active',
         ]
 
     def get_min_price(self, obj):
@@ -71,6 +73,10 @@ class ProductListSerializer(serializers.ModelSerializer):
             url = image.image.url
             return request.build_absolute_uri(url) if request else url
         return None
+    
+    def get_avg_rating(self, obj):
+        value = getattr(obj, 'avg_rating', None)
+        return round(float(value), 1) if value is not None else None
 
 
 class ProductDetailSerializer(serializers.ModelSerializer):
@@ -78,15 +84,21 @@ class ProductDetailSerializer(serializers.ModelSerializer):
     attributes = ProductAttributeSerializer(many=True, read_only=True)
     variants = ProductVariantSerializer(many=True, read_only=True)
     images = ProductImageSerializer(many=True, read_only=True)
+    avg_rating = serializers.SerializerMethodField()
+    review_count = serializers.IntegerField(read_only=True)
+
 
     class Meta:
         model = Product
         fields = [
             'id', 'category', 'name', 'slug', 'description', 'brand',
-            'is_active', 'attributes', 'variants', 'images',
+            'is_active', 'attributes', 'variants', 'images', 'avg_rating', 'review_count',
             'created_at', 'updated_at',
         ]
 
+    def get_avg_rating(self, obj):
+        value = getattr(obj, 'avg_rating', None)
+        return round(float(value), 1) if value is not None else None
 
 class ProductWriteSerializer(serializers.ModelSerializer):
     """

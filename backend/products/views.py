@@ -1,4 +1,4 @@
-from django.db.models import Q
+from django.db.models import Q,Avg,Count
 from rest_framework import generics, permissions
 from .models import Category, Product
 from .serializers import (
@@ -31,8 +31,11 @@ class ProductListCreateView(generics.ListCreateAPIView):
         return ProductListSerializer
 
     def get_queryset(self):
-        qs = Product.objects.select_related('category').prefetch_related('variants')
-
+        qs = Product.objects.select_related('category').prefetch_related('variants').annotate(
+            avg_rating=Avg('reviews__rating'),
+            review_count=Count('reviews', distinct=True),
+        )
+    
         if not (self.request.user and self.request.user.is_staff):
             qs = qs.filter(is_active=True)
 
@@ -82,6 +85,9 @@ class ProductDetailView(generics.RetrieveUpdateDestroyAPIView):
     def get_queryset(self):
         qs = Product.objects.select_related('category').prefetch_related(
             'variants', 'variants__attributes', 'images', 'attributes'
+        ).annotate(
+            avg_rating=Avg('reviews__rating'),
+            review_count=Count('reviews', distinct=True),
         )
         if not (self.request.user and self.request.user.is_staff):
             qs = qs.filter(is_active=True)
