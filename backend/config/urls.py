@@ -28,4 +28,5 @@ urlpatterns = [
     path('api/',include('coupons.urls')),
     path('api/',include('orders.urls')),
     path('api/',include('reviews.urls')),
+    path('api/',include('wishlist.urls')),
 ] + static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)

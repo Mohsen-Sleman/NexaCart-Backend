@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'coupons',
     'orders',
     'reviews',
+    'wishlist',
 
     'rest_framework',
     'rest_framework_simplejwt.token_blacklist',
