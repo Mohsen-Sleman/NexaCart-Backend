@@ -9270,6 +9270,725 @@
         }
       ],
       "name": "Reviews"
+    },
+    {
+      "item": [
+        {
+          "name": "Get My Wishlist",
+          "request": {
+            "auth": {
+              "bearer": [
+                {
+                  "key": "token",
+                  "type": "string",
+                  "value": "{{access_token}}"
+                }
+              ],
+              "type": "bearer"
+            },
+            "header": [],
+            "method": "GET",
+            "url": {
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "wishlist",
+                ""
+              ],
+              "raw": "{{base_url}}/api/wishlist/"
+            }
+          },
+          "response": [
+            {
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"id\": 1,\n  \"items\": [\n    {\n      \"id\": 1,\n      \"product\": 2,\n      \"product_name\": \"iPhone 15\",\n      \"slug\": \"iphone-15\",\n      \"min_price\": 799,\n      \"primary_image\": \"http://127.0.0.1:8000/media/products/iphone.jfif\",\n      \"created_at\": \"2026-09-29T08:45:12.221934Z\"\n    },\n    {\n      \"id\": 2,\n      \"product\": 11,\n      \"product_name\": \"Electric Kettle\",\n      \"slug\": \"electric-kettle\",\n      \"min_price\": 34.99,\n      \"primary_image\": null,\n      \"created_at\": \"2026-09-29T08:45:12.223204Z\"\n    }\n  ]\n}",
+              "code": 200,
+              "cookie": [],
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Tue, 29 Sep 2026 09:16:38 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "allow",
+                  "value": "GET, HEAD, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "375"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "name": "Success - 200 OK (has items)",
+              "originalRequest": {
+                "header": [],
+                "method": "GET",
+                "url": {
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "wishlist",
+                    ""
+                  ],
+                  "raw": "{{base_url}}/api/wishlist/"
+                }
+              },
+              "status": "OK"
+            },
+            {
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"id\": 2,\n  \"items\": []\n}",
+              "code": 200,
+              "cookie": [],
+              "header": [
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                }
+              ],
+              "name": "Success - 200 OK (lazily created, empty)",
+              "originalRequest": {
+                "header": [],
+                "method": "GET",
+                "url": {
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "wishlist",
+                    ""
+                  ],
+                  "raw": "{{base_url}}/api/wishlist/"
+                }
+              },
+              "status": "OK"
+            }
+          ]
+        },
+        {
+          "name": "Get My Wishlist - No Token",
+          "request": {
+            "header": [],
+            "method": "GET",
+            "url": {
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "wishlist",
+                ""
+              ],
+              "raw": "{{base_url}}/api/wishlist/"
+            }
+          },
+          "response": [
+            {
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"detail\": \"Authentication credentials were not provided.\"\n}",
+              "code": 401,
+              "cookie": [],
+              "header": [
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                }
+              ],
+              "name": "401 - Unauthorized",
+              "originalRequest": {
+                "header": [],
+                "method": "GET",
+                "url": {
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "wishlist",
+                    ""
+                  ],
+                  "raw": "{{base_url}}/api/wishlist/"
+                }
+              },
+              "status": "Unauthorized"
+            }
+          ]
+        },
+        {
+          "name": "Add Product to Wishlist - New",
+          "request": {
+            "auth": {
+              "bearer": [
+                {
+                  "key": "token",
+                  "type": "string",
+                  "value": "{{access_token2}}"
+                }
+              ],
+              "type": "bearer"
+            },
+            "body": {
+              "mode": "raw",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              },
+              "raw": "{\n  \"product\": 10\n}"
+            },
+            "header": [],
+            "method": "POST",
+            "url": {
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "wishlist",
+                "items",
+                ""
+              ],
+              "raw": "{{base_url}}/api/wishlist/items/"
+            }
+          },
+          "response": [
+            {
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"id\": 4,\n  \"product\": 10,\n  \"product_name\": \"Blender X200\",\n  \"slug\": \"blender-x200\",\n  \"min_price\": 59.99,\n  \"primary_image\": null,\n  \"created_at\": \"2026-09-29T09:24:28.173528Z\"\n}",
+              "code": 201,
+              "cookie": [],
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Tue, 29 Sep 2026 09:24:28 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "155"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "name": "Added Successfully - 201 Created",
+              "originalRequest": {
+                "body": {
+                  "mode": "raw",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  },
+                  "raw": "{\n  \"product\": 10\n}"
+                },
+                "header": [],
+                "method": "POST",
+                "url": {
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "wishlist",
+                    "items",
+                    ""
+                  ],
+                  "raw": "{{base_url}}/api/wishlist/items/"
+                }
+              },
+              "status": "Created"
+            }
+          ]
+        },
+        {
+          "name": "Add Product to Wishlist - Already There (idempotent)",
+          "request": {
+            "auth": {
+              "bearer": [
+                {
+                  "key": "token",
+                  "type": "string",
+                  "value": "{{access_token}}"
+                }
+              ],
+              "type": "bearer"
+            },
+            "body": {
+              "mode": "raw",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              },
+              "raw": "{\n  \"product\": 2\n}"
+            },
+            "description": "user1 already has iPhone 15 wishlisted (from seed_all) - should return 200, not a duplicate or an error.",
+            "header": [],
+            "method": "POST",
+            "url": {
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "wishlist",
+                "items",
+                ""
+              ],
+              "raw": "{{base_url}}/api/wishlist/items/"
+            }
+          },
+          "response": [
+            {
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"id\": 1,\n  \"product\": 2,\n  \"product_name\": \"iPhone 15\",\n  \"slug\": \"iphone-15\",\n  \"min_price\": 799,\n  \"primary_image\": \"http://127.0.0.1:8000/media/products/iphone.jfif\",\n  \"created_at\": \"2026-09-29T08:45:12.221934Z\"\n}",
+              "code": 200,
+              "cookie": [],
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Tue, 29 Sep 2026 09:25:36 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "194"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "name": "No Duplicate Created - 200 OK",
+              "originalRequest": {
+                "body": {
+                  "mode": "raw",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  },
+                  "raw": "{\n  \"product\": 2\n}"
+                },
+                "header": [],
+                "method": "POST",
+                "url": {
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "wishlist",
+                    "items",
+                    ""
+                  ],
+                  "raw": "{{base_url}}/api/wishlist/items/"
+                }
+              },
+              "status": "OK"
+            }
+          ]
+        },
+        {
+          "name": "Add Inactive/Unknown Product",
+          "request": {
+            "auth": {
+              "bearer": [
+                {
+                  "key": "token",
+                  "type": "string",
+                  "value": "{{access_token}}"
+                }
+              ],
+              "type": "bearer"
+            },
+            "body": {
+              "mode": "raw",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              },
+              "raw": "{\n  \"product\": 999999\n}"
+            },
+            "header": [],
+            "method": "POST",
+            "url": {
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "wishlist",
+                "items",
+                ""
+              ],
+              "raw": "{{base_url}}/api/wishlist/items/"
+            }
+          },
+          "response": [
+            {
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"product\": [\n    \"Invalid pk \\\"999999\\\" - object does not exist.\"\n  ]\n}",
+              "code": 400,
+              "cookie": [],
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Tue, 29 Sep 2026 09:19:29 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "62"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "name": "400 - Bad Reuqest",
+              "originalRequest": {
+                "body": {
+                  "mode": "raw",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  },
+                  "raw": "{\n  \"product\": 999999\n}"
+                },
+                "header": [],
+                "method": "POST",
+                "url": {
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "wishlist",
+                    "items",
+                    ""
+                  ],
+                  "raw": "{{base_url}}/api/wishlist/items/"
+                }
+              },
+              "status": "Bad Request"
+            }
+          ]
+        },
+        {
+          "name": "Remove Item from Wishlist",
+          "request": {
+            "auth": {
+              "bearer": [
+                {
+                  "key": "token",
+                  "type": "string",
+                  "value": "{{access_token}}"
+                }
+              ],
+              "type": "bearer"
+            },
+            "header": [],
+            "method": "DELETE",
+            "url": {
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "wishlist",
+                "items",
+                "2",
+                ""
+              ],
+              "raw": "{{base_url}}/api/wishlist/items/2/"
+            }
+          },
+          "response": [
+            {
+              "_postman_previewlanguage": "text",
+              "body": "",
+              "code": 204,
+              "cookie": [],
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Tue, 29 Sep 2026 09:28:52 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "allow",
+                  "value": "DELETE, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "0"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "name": "Deleted Successfully - 204 No Content",
+              "originalRequest": {
+                "header": [],
+                "method": "DELETE",
+                "url": {
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "wishlist",
+                    "items",
+                    "2",
+                    ""
+                  ],
+                  "raw": "{{base_url}}/api/wishlist/items/2/"
+                }
+              },
+              "status": "No Content"
+            }
+          ]
+        },
+        {
+          "name": "Remove Someone Else's Item (should 404)",
+          "request": {
+            "auth": {
+              "bearer": [
+                {
+                  "key": "token",
+                  "type": "string",
+                  "value": "{{access_token2}}"
+                }
+              ],
+              "type": "bearer"
+            },
+            "description": "Item id 1 belongs to user1, but we're using user2's token.",
+            "header": [],
+            "method": "DELETE",
+            "url": {
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "wishlist",
+                "items",
+                "5",
+                ""
+              ],
+              "raw": "{{base_url}}/api/wishlist/items/5/"
+            }
+          },
+          "response": [
+            {
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"detail\": \"No WishlistItem matches the given query.\"\n}",
+              "code": 404,
+              "cookie": [],
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Tue, 29 Sep 2026 09:28:03 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "WSGIServer/0.2 CPython/3.13.7"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "allow",
+                  "value": "DELETE, OPTIONS"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-length",
+                  "value": "53"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                }
+              ],
+              "name": "404 - Not Found",
+              "originalRequest": {
+                "header": [],
+                "method": "DELETE",
+                "url": {
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "wishlist",
+                    "items",
+                    "5",
+                    ""
+                  ],
+                  "raw": "{{base_url}}/api/wishlist/items/5/"
+                }
+              },
+              "status": "Not Found"
+            }
+          ]
+        }
+      ],
+      "name": "Wishlist"
     }
   ]
 }
