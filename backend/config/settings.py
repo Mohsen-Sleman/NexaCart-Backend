@@ -255,3 +255,19 @@ LOGGING = {
 
 
 FLAT_SHIPPING_FEE = 10.00
+
+from celery.schedules import crontab
+
+CELERY_BROKER_URL = os.environ.get('CELERY_BROKER_URL', 'redis://localhost:6379/0')
+CELERY_RESULT_BACKEND = os.environ.get('CELERY_RESULT_BACKEND', 'redis://localhost:6379/0')
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = TIME_ZONE
+
+CELERY_BEAT_SCHEDULE = {
+    'cleanup-expired-otps-daily': {
+        'task': 'users.tasks.cleanup_expired_otps',
+        'schedule': crontab(hour=3, minute=0),
+    },
+}

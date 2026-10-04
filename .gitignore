@@ -53,3 +53,7 @@ dist/
 
 # Local development
 *.local
+
+#Celery Beat
+celerybeat-schedule
+celerybeat.pid
