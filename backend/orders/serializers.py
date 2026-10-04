@@ -5,6 +5,7 @@ from rest_framework import serializers
 from addresses.models import Address
 from products.models import ProductVariant
 from coupons.models import Coupon
+from .tasks import send_order_confirmation_email
 from .models import Order, OrderItem, CouponUsage
 
 
@@ -150,4 +151,5 @@ class CheckoutSerializer(serializers.Serializer):
 
             cart.items.all().delete()  # cart empties fully on success
 
+            transaction.on_commit(lambda: send_order_confirmation_email.delay(order.id))
         return order
