@@ -7,6 +7,7 @@ from django.conf import settings
 from django.core.mail import send_mail
 import requests
 from .models import OTP
+from .tasks import send_otp_email as send_otp_email_bg
 
 logger = logging.getLogger(__name__)
 MAX_OTP_ATTEMPTS = 5
@@ -23,15 +24,8 @@ def create_otp(user,purpose) :
 
     return otp
 
-def send_otp_email(user,otp) :
-    send_mail(
-        subject = "NexaCart - Email Verification Code",
-        message = (f"Hello {user.first_name}, \n\n " 
-                f"verification code is: {otp} \n\n"
-                "This code will expire in 5 minutes. \n\n"),
-        from_email = settings.DEFAULT_FROM_EMAIL,
-        recipient_list=[user.email]
-    )
+def send_otp_email(user,otp,purpose) :
+    send_otp_email_bg.delay(user.email, otp, purpose)
 
 def verify_otp(otp_obj,entered_otp) :
     if otp_obj.used_at is not None :

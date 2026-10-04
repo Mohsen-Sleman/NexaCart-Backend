@@ -23,7 +23,7 @@ class UserRegistrationView(CreateAPIView) :
         user = serializer.save()
 
         otp = create_otp(user = user,purpose=OTP.Purpose.EMAIL_VERIFICATION)
-        send_otp_email(user,otp)
+        send_otp_email(user,otp,'registration')
         return Response(
             {
                 'message' : 'Registration successful, Please verify your email.'
@@ -141,7 +141,7 @@ class ResendOTPView(CreateAPIView):
             purpose=OTP.Purpose.EMAIL_VERIFICATION
         )
 
-        send_otp_email(user, otp)
+        send_otp_email(user, otp,'registration')
 
         return Response(
             {"message": "A new verification code has been sent."},
@@ -176,8 +176,7 @@ class PasswordResetRequestView(CreateAPIView):
             user=user,
             purpose=OTP.Purpose.PASSWORD_RESET
         )
-
-        send_otp_email(user, otp)
+        send_otp_email(user, otp,'password_reset')
 
         return Response(
             {
