@@ -342,11 +342,16 @@ class GoogleLoginView(APIView):
                 email=email,
                 first_name=google_data.get("given_name", ""),
                 last_name=google_data.get("family_name", ""),
+                is_verified=True,
             )
             user.set_unusable_password()
             user.save()
             is_new_user = True
-
+        else:
+            if not user.is_verified:
+                user.is_verified = True
+                user.save(update_fields=["is_verified"])
+                
         refresh = RefreshToken.for_user(user)
 
         return Response({
