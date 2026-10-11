@@ -17,7 +17,7 @@ def test_guest_only_sees_active_products(api_client):
 
     response = api_client.get(PRODUCT_LIST_URL)
 
-    names = [p['name'] for p in response.data]
+    names = [p['name'] for p in response.data['results']]
     assert 'Visible' in names
     assert 'Hidden' not in names
 
@@ -28,7 +28,7 @@ def test_staff_sees_inactive_products_too(auth_client):
 
     response = auth_client(staff).get(PRODUCT_LIST_URL)
 
-    names = [p['name'] for p in response.data]
+    names = [p['name'] for p in response.data['results']]
     assert 'Hidden' in names
 
 
@@ -39,7 +39,7 @@ def test_regular_authenticated_user_does_not_see_inactive(auth_client):
 
     response = auth_client(regular_user).get(PRODUCT_LIST_URL)
 
-    names = [p['name'] for p in response.data]
+    names = [p['name'] for p in response.data['results']]
     assert 'Hidden' not in names
 
 
@@ -52,7 +52,7 @@ def test_filter_by_category(api_client):
 
     response = api_client.get(PRODUCT_LIST_URL, {'category': electronics.slug})
 
-    names = [p['name'] for p in response.data]
+    names = [p['name'] for p in response.data['results']]
     assert names == ['Phone']
 
 
@@ -62,7 +62,7 @@ def test_filter_by_brand(api_client):
 
     response = api_client.get(PRODUCT_LIST_URL, {'brand': 'Nike'})
 
-    names = [p['name'] for p in response.data]
+    names = [p['name'] for p in response.data['results']]
     assert names == ['Nike Shoe']
 
 
@@ -74,7 +74,7 @@ def test_filter_by_price_range(api_client):
 
     response = api_client.get(PRODUCT_LIST_URL, {'price_min': '5', 'price_max': '50'})
 
-    names = [p['name'] for p in response.data]
+    names = [p['name'] for p in response.data['results']]
     assert names == ['Cheap']
 
 
@@ -86,7 +86,7 @@ def test_filter_by_price_range_no_duplicates_with_multiple_variants(api_client):
 
     response = api_client.get(PRODUCT_LIST_URL, {'price_min': '10', 'price_max': '30'})
 
-    names = [p['name'] for p in response.data]
+    names = [p['name'] for p in response.data['results']]
     assert names.count('Multi Variant') == 1
 
 
@@ -96,7 +96,7 @@ def test_search_by_name(api_client):
 
     response = api_client.get(PRODUCT_LIST_URL, {'search': 'iphone'})
 
-    names = [p['name'] for p in response.data]
+    names = [p['name'] for p in response.data['results']]
     assert names == ['iPhone 15']
 
 
@@ -108,7 +108,7 @@ def test_min_price_is_cheapest_active_variant(api_client):
 
     response = api_client.get(PRODUCT_LIST_URL)
 
-    item = next(p for p in response.data if p['id'] == product.id)
+    item = next(p for p in response.data['results'] if p['id'] == product.id)
     assert item['min_price'] == Decimal('30.00')
 
 
@@ -119,7 +119,7 @@ def test_min_price_ignores_inactive_variants(api_client):
 
     response = api_client.get(PRODUCT_LIST_URL)
 
-    item = next(p for p in response.data if p['id'] == product.id)
+    item = next(p for p in response.data['results'] if p['id'] == product.id)
     assert item['min_price'] == Decimal('80.00')  # not the cheaper, inactive one
 
 
@@ -134,7 +134,7 @@ def test_avg_rating_and_review_count(api_client):
 
     response = api_client.get(PRODUCT_LIST_URL)
 
-    item = next(p for p in response.data if p['id'] == product.id)
+    item = next(p for p in response.data['results'] if p['id'] == product.id)
     assert item['review_count'] == 2
     assert item['avg_rating'] == 3.0  # (4 + 2) / 2
 
@@ -144,6 +144,6 @@ def test_avg_rating_is_null_with_no_reviews(api_client):
 
     response = api_client.get(PRODUCT_LIST_URL)
 
-    item = next(p for p in response.data if p['id'] == product.id)
+    item = next(p for p in response.data['results'] if p['id'] == product.id)
     assert item['review_count'] == 0
     assert item['avg_rating'] is None

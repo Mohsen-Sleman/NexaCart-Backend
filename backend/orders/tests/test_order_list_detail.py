@@ -29,7 +29,7 @@ def test_list_only_shows_own_orders(auth_client):
 
     response = auth_client(me).get(ORDER_LIST_URL)
 
-    assert len(response.data) == 1
+    assert len(response.data['results']) == 1
 
 
 def test_list_newest_first(auth_client):
@@ -41,8 +41,9 @@ def test_list_newest_first(auth_client):
     
     response = auth_client(user).get(ORDER_LIST_URL)
 
-    assert response.data[0]['id'] == newer.id
-    assert response.data[1]['id'] == older.id
+    results = response.data['results']
+    assert results[0]['id'] == newer.id
+    assert results[1]['id'] == older.id
 
 
 # ------------------------------------------------------------------ detail

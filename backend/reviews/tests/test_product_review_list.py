@@ -25,7 +25,7 @@ def test_list_only_shows_reviews_for_that_product(api_client):
 
     response = api_client.get(list_url(product_a.slug))
 
-    comments = [r['comment'] for r in response.data]
+    comments = [r['comment'] for r in response.data['results']]
     assert comments == ['About A']
 
 
