@@ -5,6 +5,7 @@ from rest_framework import status
 from rest_framework.permissions import AllowAny,IsAuthenticated
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.parsers import JSONParser,MultiPartParser,FormParser
+from rest_framework.throttling import ScopedRateThrottle
 from .services import verify_google_token
 from .models import OTP,User
 from .serializer import (UserRegistrationSerializer,VerifyEmailSerializer,ResendOTPSerializer,
@@ -115,6 +116,8 @@ class VerifyEmailView(CreateAPIView):
 class ResendOTPView(CreateAPIView):
     serializer_class = ResendOTPSerializer
     permission_classes = [AllowAny]
+    throttle_classes = [ScopedRateThrottle]
+    throttle_scope = 'otp'
 
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
@@ -152,6 +155,8 @@ class ResendOTPView(CreateAPIView):
 class PasswordResetRequestView(CreateAPIView):
     serializer_class = PasswordResetRequestSerializer
     permission_classes = [AllowAny]
+    throttle_classes = [ScopedRateThrottle]
+    throttle_scope = 'otp'
 
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
@@ -267,6 +272,8 @@ class PasswordResetConfirmView(CreateAPIView):
 class LoginView(CreateAPIView) :
     serializer_class = LoginSerializer
     permission_classes = [AllowAny]
+    throttle_classes = [ScopedRateThrottle]
+    throttle_scope = 'login'
 
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
