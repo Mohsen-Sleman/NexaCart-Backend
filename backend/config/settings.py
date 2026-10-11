@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt.token_blacklist',
 
     'rest_framework.authtoken',
+    'drf_spectacular',
 
     'allauth',
     'allauth.account',
@@ -180,6 +181,7 @@ REST_FRAMEWORK = {
         'coupon_preview': '10/minute',
     },
     'PAGE_SIZE': 10,
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
 
 from datetime import timedelta
@@ -282,4 +284,11 @@ CELERY_BEAT_SCHEDULE = {
         'task': 'users.tasks.cleanup_expired_otps',
         'schedule': crontab(hour=3, minute=0),
     },
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'NexaCart API',
+    'DESCRIPTION': 'Single-vendor e-commerce backend — Django/DRF portfolio project.',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
 }
