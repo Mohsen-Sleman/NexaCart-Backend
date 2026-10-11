@@ -287,7 +287,13 @@ class LoginView(CreateAPIView) :
         ,status=status.HTTP_200_OK)
 
 
+from rest_framework import serializers
+
+class LogoutSerializer(serializers.Serializer):
+    refresh = serializers.CharField()
+
 class LogoutView(CreateAPIView):
+    serializer_class = LogoutSerializer
     permission_classes = [IsAuthenticated]
 
     def create(self, request, *args, **kwargs):
@@ -327,6 +333,7 @@ class UserProfileView(RetrieveUpdateAPIView) :
 
 
 class GoogleLoginView(APIView):
+    serializer_class = GoogleLoginSerializer 
     def post(self, request):
         serializer = GoogleLoginSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)

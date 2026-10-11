@@ -36,6 +36,7 @@ class WishlistItemCreateView(generics.CreateAPIView):
 
 class WishlistItemDeleteView(generics.DestroyAPIView):
     """DELETE /wishlist/items/<id>/ - scoped to the current user's own wishlist."""
+    serializer_class = WishlistItemSerializer
     permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
