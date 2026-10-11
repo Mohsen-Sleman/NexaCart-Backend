@@ -2,6 +2,7 @@ from rest_framework import generics, permissions, status
 from rest_framework.response import Response
 from rest_framework.exceptions import ValidationError
 from django.db import transaction
+from rest_framework.pagination import PageNumberPagination
 from products.models import ProductVariant
 from .models import Order
 from .serializers import OrderSerializer, CheckoutSerializer
@@ -24,6 +25,7 @@ class OrderListView(generics.ListAPIView):
     """GET /orders/ - the current user's own order history, newest first."""
     serializer_class = OrderSerializer
     permission_classes = [permissions.IsAuthenticated]
+    pagination_class = PageNumberPagination
 
     def get_queryset(self):
         return (

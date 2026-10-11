@@ -1,5 +1,6 @@
 from django.db.models import Q,Avg,Count
 from rest_framework import generics, permissions
+from rest_framework.pagination import PageNumberPagination
 from .models import Category, Product
 from .serializers import (
     CategorySerializer,
@@ -24,6 +25,7 @@ class ProductListCreateView(generics.ListCreateAPIView):
     POST /products/  - staff only, create a product with its first variant.
     """
     permission_classes = [IsStaffOrReadOnly]
+    pagination_class = PageNumberPagination
 
     def get_serializer_class(self):
         if self.request.method == 'POST':

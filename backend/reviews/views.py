@@ -1,6 +1,7 @@
 from django.shortcuts import get_object_or_404
 from rest_framework import generics, permissions, status
 from rest_framework.response import Response
+from rest_framework.pagination import PageNumberPagination
 from products.models import Product
 from .models import Review
 from .serializers import ReviewSerializer, ReviewCreateSerializer, ReviewUpdateSerializer
@@ -10,6 +11,7 @@ class ProductReviewListView(generics.ListAPIView):
     """GET /products/<slug>/reviews/ - public, newest first."""
     serializer_class = ReviewSerializer
     permission_classes = [permissions.AllowAny]
+    pagination_class = PageNumberPagination
 
     def get_queryset(self):
         product = get_object_or_404(Product, slug=self.kwargs['slug'], is_active=True)
