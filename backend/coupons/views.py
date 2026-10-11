@@ -1,6 +1,7 @@
 from rest_framework import generics, permissions
 from rest_framework.response import Response
 from rest_framework.exceptions import ValidationError
+from rest_framework.throttling import ScopedRateThrottle
 from .serializers import CouponPreviewSerializer
 
 
@@ -16,6 +17,8 @@ class CouponPreviewView(generics.GenericAPIView):
     """
     serializer_class = CouponPreviewSerializer
     permission_classes = [permissions.IsAuthenticated]
+    throttle_classes = [ScopedRateThrottle]
+    throttle_scope = 'coupon_preview'
 
     def post(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
