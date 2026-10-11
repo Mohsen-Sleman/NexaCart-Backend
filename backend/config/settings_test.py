@@ -20,3 +20,21 @@ EMAIL_BACKEND = 'django.core.mail.backends.locmem.EmailBackend'
 # point, for real logins). Tests create dozens of users - MD5 here cuts
 # the suite's runtime significantly. Never do this outside tests.
 PASSWORD_HASHERS = ['django.contrib.auth.hashers.MD5PasswordHasher']
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ),
+    'DEFAULT_THROTTLE_CLASSES': [
+        'rest_framework.throttling.AnonRateThrottle',
+        'rest_framework.throttling.UserRateThrottle',
+    ],
+    'DEFAULT_THROTTLE_RATES': {
+        'anon': None,
+        'user': None,
+        'login': None,
+        'otp': None,
+        'coupon_preview': None,
+    },
+    'PAGE_SIZE': 10,
+}
