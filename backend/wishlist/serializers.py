@@ -1,3 +1,4 @@
+from drf_spectacular.utils import extend_schema_field
 from rest_framework import serializers
 from .models import Wishlist, WishlistItem
 from products.models import Product
@@ -15,10 +16,12 @@ class WishlistItemSerializer(serializers.ModelSerializer):
         fields = ['id', 'product', 'product_name', 'slug', 'min_price', 'primary_image', 'created_at']
         read_only_fields = ['id', 'product', 'created_at']
 
+    @extend_schema_field(serializers.DecimalField(max_digits=10, decimal_places=2, allow_null=True))
     def get_min_price(self, obj):
         cheapest = obj.product.variants.filter(is_active=True).order_by('price').first()
         return cheapest.price if cheapest else None
 
+    @extend_schema_field(serializers.URLField(allow_null=True))
     def get_primary_image(self, obj):
         image = obj.product.images.filter(is_primary=True).first()
         if not image:

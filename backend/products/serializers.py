@@ -1,3 +1,4 @@
+from drf_spectacular.utils import extend_schema_field
 from rest_framework import serializers
 from .models import (
     Category, Product, ProductImage, ProductAttribute,
@@ -61,11 +62,13 @@ class ProductListSerializer(serializers.ModelSerializer):
             'min_price', 'primary_image','avg_rating', 'review_count', 'is_active',
         ]
 
+    @extend_schema_field(serializers.DecimalField(max_digits=10, decimal_places=2, allow_null=True))
     def get_min_price(self, obj):
         active_variants = obj.variants.filter(is_active=True)
         cheapest = active_variants.order_by('price').first()
         return cheapest.price if cheapest else None
 
+    @extend_schema_field(serializers.URLField(allow_null=True))
     def get_primary_image(self, obj):
         image = obj.images.filter(is_primary=True).first()
         if image:
@@ -74,6 +77,7 @@ class ProductListSerializer(serializers.ModelSerializer):
             return request.build_absolute_uri(url) if request else url
         return None
     
+    @extend_schema_field(serializers.FloatField(allow_null=True))
     def get_avg_rating(self, obj):
         value = getattr(obj, 'avg_rating', None)
         return round(float(value), 1) if value is not None else None
@@ -96,6 +100,7 @@ class ProductDetailSerializer(serializers.ModelSerializer):
             'created_at', 'updated_at',
         ]
 
+    @extend_schema_field(serializers.FloatField(allow_null=True))
     def get_avg_rating(self, obj):
         value = getattr(obj, 'avg_rating', None)
         return round(float(value), 1) if value is not None else None

@@ -1,4 +1,5 @@
 from django.db import IntegrityError
+from drf_spectacular.utils import extend_schema_field
 from rest_framework import serializers
 from orders.models import Order, OrderItem
 from products.models import Product
@@ -14,6 +15,7 @@ class ReviewSerializer(serializers.ModelSerializer):
         fields = ['id', 'product', 'reviewer_name', 'rating', 'comment', 'created_at', 'updated_at']
         read_only_fields = fields
 
+    @extend_schema_field(serializers.CharField())
     def get_reviewer_name(self, obj):
         name = (obj.user.first_name or '').strip()
         last_initial = (obj.user.last_name or '').strip()[:1]

@@ -1,3 +1,4 @@
+from drf_spectacular.utils import extend_schema_field
 from rest_framework import serializers
 from .models import Cart, CartItem
 from products.models import ProductVariant
@@ -20,6 +21,7 @@ class CartItemSerializer(serializers.ModelSerializer):
         ]
         read_only_fields = ['id', 'variant']
 
+    @extend_schema_field(serializers.DecimalField(max_digits=10, decimal_places=2))
     def get_subtotal(self, obj):
         return obj.variant.price * obj.quantity
 
@@ -32,6 +34,7 @@ class CartSerializer(serializers.ModelSerializer):
         model = Cart
         fields = ['id', 'items', 'total']
 
+    @extend_schema_field(serializers.DecimalField(max_digits=10, decimal_places=2))
     def get_total(self, obj):
         return sum((item.variant.price * item.quantity for item in obj.items.all()), 0)
 
