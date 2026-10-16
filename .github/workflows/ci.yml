@@ -1,0 +1,72 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    # manage.py / pytest.ini / requirements.txt all live inside backend/
+    defaults:
+      run:
+        working-directory: backend
+
+    # A real Postgres is needed because config.settings_test still
+    # inherits DATABASES from settings.py (only email/celery/password
+    # hashing are swapped - see settings_test.py). No Redis service here:
+    # CELERY_TASK_ALWAYS_EAGER=True in settings_test means tasks run
+    # in-process during tests, so nothing ever actually talks to a broker.
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_DB: nexacart_test
+          POSTGRES_USER: nexacart_user
+          POSTGRES_PASSWORD: test_password
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U nexacart_user -d nexacart_test"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 5
+
+    env:
+      # Fake, CI-only values - never real secrets. The real ones live in
+      # the deployment server's own .env, untouched by this workflow.
+      DATABASE_NAME: nexacart_test
+      DATABASE_USER: nexacart_user
+      DATABASE_PASSWORD: test_password
+      DATABASE_HOST: localhost
+      DATABASE_PORT: 5432
+      SECRET_KEY: ci-only-not-a-real-secret-but-long-enough-for-hmac
+      DEBUG: "True"
+      EMAIL_HOST: smtp.example.com
+      EMAIL_PORT: "587"
+      EMAIL_HOST_USER: ci@example.com
+      EMAIL_HOST_PASSWORD: dummy
+      EMAIL_USE_TLS: "True"
+      EMAIL_USE_SSL: "False"
+      DEFAULT_FROM_EMAIL: 'ci@example.com'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: 'pip'
+          cache-dependency-path: backend/requirements.txt
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run test suite
+        run: pytest
